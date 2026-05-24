@@ -19,7 +19,6 @@ Uso:
 
 import sys
 import json
-import importlib
 import re
 from pathlib import Path
 import xml.etree.ElementTree as ET
@@ -37,10 +36,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.grafo import GrafoSP
-import src.metricas as metricas_mod
-
-metricas_mod = importlib.reload(metricas_mod)
-MetricasAcessibilidade = metricas_mod.MetricasAcessibilidade
+from src.metricas import MetricasAcessibilidade
 
 # ============================================================================
 # Configuração da Página
@@ -1113,7 +1109,9 @@ def obter_rota_osrm(
 def carregar_grafo():
     """Carrega e constrói o grafo (executado apenas uma vez)."""
     data_dir = Path(__file__).resolve().parent.parent / "data"
-    return GrafoSP(data_dir=data_dir)
+    grafo_obj = GrafoSP(data_dir=data_dir)
+    aplicar_formatacao_enderecos(grafo_obj)
+    return grafo_obj
 
 
 def carregar_metricas(_grafo):
@@ -1208,7 +1206,6 @@ if not (data_dir / "ubs_vertices.json").exists():
 
 # Carregar dados
 grafo = carregar_grafo()
-aplicar_formatacao_enderecos(grafo)
 metricas = carregar_metricas(grafo)
 stats = grafo.estatisticas()
 
@@ -1333,10 +1330,9 @@ with tab1:
 
         if area_ativa and ubs_area:
             if distrito_id not in ids_area_mapa:
-                distrito_id = int(ubs_area[0]["id"])
-                distrito_selecionado_nome = grafo.get_nome(distrito_id)
-                st.session_state["distrito_id"] = distrito_id
-            ubs_destino_id = distrito_id
+                ubs_destino_id = int(ubs_area[0]["id"])
+            else:
+                ubs_destino_id = distrito_id
 
             st.markdown(f"#### UBSs na área selecionada ({len(ubs_area)})")
             df_area = pd.DataFrame(ubs_area).rename(columns={
@@ -1485,6 +1481,10 @@ with tab1:
                 if opcoes_categoria and id_estado not in ids_categoria_mapa:
                     id_estado = int(opcoes_categoria[0]["id"])
                     st.session_state["ubs_recomendada_id"] = id_estado
+                    # Sincroniza a analise apenas quando surge uma nova recomendacao.
+                    # Reescrever isto em toda renderizacao gera rerun circular.
+                    st.session_state["distrito_id"] = id_estado
+                    st.session_state["seletor_ubs_analise"] = grafo.get_nome(id_estado)
 
                 ubs_escolhida = None
                 if id_estado in ids_categoria_mapa:
@@ -1534,16 +1534,12 @@ with tab1:
                                 ):
                                     st.session_state["ubs_recomendada_id"] = item_id
                                     st.session_state["distrito_id"] = item_id
+                                    st.session_state["seletor_ubs_analise"] = grafo.get_nome(item_id)
                                     st.rerun()
 
                 if ubs_escolhida:
                     ubs_destino_id = int(ubs_escolhida["id"])
                     distancia_endereco_ubs = float(ubs_escolhida["distancia_km"])
-
-                    if ubs_destino_id in grafo.distritos and ubs_destino_id != distrito_id:
-                        st.session_state["distrito_id"] = ubs_destino_id
-                        distrito_id = ubs_destino_id
-                        distrito_selecionado_nome = grafo.get_nome(distrito_id)
 
                     rota_endereco_ubs = ubs_escolhida.get("rota")
 
@@ -1748,13 +1744,18 @@ with tab1:
         )
 
     with col_info:
+        painel_ubs_id = (
+            ubs_destino_id
+            if ubs_destino_id in grafo.distritos
+            else distrito_id
+        )
         titulo_painel = (
             "UBS Recomendada"
             if endereco_localizado and distancia_endereco_ubs is not None
             else "UBS Selecionada"
         )
         st.markdown(f"### {titulo_painel}")
-        d = grafo.distritos[distrito_id]
+        d = grafo.distritos[painel_ubs_id]
         st.markdown(f"**{d['nome']}**")
         st.markdown(f"Bairro: **{d.get('bairro', 'N/D')}**")
         st.markdown(f"Distrito: **{d.get('distrito', 'N/D')}**")
@@ -1764,17 +1765,17 @@ with tab1:
             st.markdown(f"Endereço: {d['endereco']}")
         st.markdown(f"Lat: {d['lat']:.4f} | Lon: {d['lon']:.4f}")
 
-        grau = grafo.G.degree(distrito_id)
+        grau = grafo.G.degree(painel_ubs_id)
         st.markdown(f"Conexões: **{grau}**")
 
         st.markdown("---")
         st.markdown("### UBSs Vizinhas")
-        vizinhos = list(grafo.G.neighbors(distrito_id))
+        vizinhos = list(grafo.G.neighbors(painel_ubs_id))
         if not vizinhos:
             st.info("Sem UBSs vizinhas cadastradas.")
         else:
             for v in sorted(vizinhos, key=lambda x: grafo.get_nome(x)):
-                peso = grafo.G[distrito_id][v]["weight"]
+                peso = grafo.G[painel_ubs_id][v]["weight"]
                 st.markdown(f"• {grafo.get_nome(v)} ({peso:.1f} km)")
 
         if endereco_localizado and distancia_endereco_ubs is not None:
@@ -1817,7 +1818,6 @@ with tab2:
         novo_distrito_analise = int(opcoes_distrito[nome_analise])
         if novo_distrito_analise != st.session_state["distrito_id"]:
             st.session_state["distrito_id"] = novo_distrito_analise
-            st.session_state["ubs_recomendada_id"] = novo_distrito_analise
             st.rerun()
 
         with col_stat_a:
