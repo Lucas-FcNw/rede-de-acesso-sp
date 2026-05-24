@@ -1,0 +1,1077 @@
+[
+  {
+    "distrito1_id": 1,
+    "distrito2_id": 2,
+    "distancia_km": 2.35
+  },
+  {
+    "distrito1_id": 1,
+    "distrito2_id": 3,
+    "distancia_km": 0.75
+  },
+  {
+    "distrito1_id": 1,
+    "distrito2_id": 4,
+    "distancia_km": 1.54
+  },
+  {
+    "distrito1_id": 1,
+    "distrito2_id": 60,
+    "distancia_km": 3.46
+  },
+  {
+    "distrito1_id": 2,
+    "distrito2_id": 3,
+    "distancia_km": 2.72
+  },
+  {
+    "distrito1_id": 2,
+    "distrito2_id": 4,
+    "distancia_km": 2.12
+  },
+  {
+    "distrito1_id": 2,
+    "distrito2_id": 11,
+    "distancia_km": 3.34
+  },
+  {
+    "distrito1_id": 2,
+    "distrito2_id": 60,
+    "distancia_km": 1.23
+  },
+  {
+    "distrito1_id": 2,
+    "distrito2_id": 61,
+    "distancia_km": 2.8
+  },
+  {
+    "distrito1_id": 3,
+    "distrito2_id": 4,
+    "distancia_km": 1.21
+  },
+  {
+    "distrito1_id": 3,
+    "distrito2_id": 8,
+    "distancia_km": 3.17
+  },
+  {
+    "distrito1_id": 3,
+    "distrito2_id": 12,
+    "distancia_km": 3.35
+  },
+  {
+    "distrito1_id": 4,
+    "distrito2_id": 8,
+    "distancia_km": 2.19
+  },
+  {
+    "distrito1_id": 4,
+    "distrito2_id": 11,
+    "distancia_km": 3.11
+  },
+  {
+    "distrito1_id": 4,
+    "distrito2_id": 12,
+    "distancia_km": 2.88
+  },
+  {
+    "distrito1_id": 4,
+    "distrito2_id": 60,
+    "distancia_km": 2.77
+  },
+  {
+    "distrito1_id": 5,
+    "distrito2_id": 6,
+    "distancia_km": 0.01
+  },
+  {
+    "distrito1_id": 5,
+    "distrito2_id": 7,
+    "distancia_km": 2.46
+  },
+  {
+    "distrito1_id": 5,
+    "distrito2_id": 11,
+    "distancia_km": 1.85
+  },
+  {
+    "distrito1_id": 5,
+    "distrito2_id": 15,
+    "distancia_km": 2.0
+  },
+  {
+    "distrito1_id": 5,
+    "distrito2_id": 16,
+    "distancia_km": 2.87
+  },
+  {
+    "distrito1_id": 5,
+    "distrito2_id": 19,
+    "distancia_km": 3.16
+  },
+  {
+    "distrito1_id": 6,
+    "distrito2_id": 7,
+    "distancia_km": 2.46
+  },
+  {
+    "distrito1_id": 6,
+    "distrito2_id": 11,
+    "distancia_km": 1.85
+  },
+  {
+    "distrito1_id": 6,
+    "distrito2_id": 15,
+    "distancia_km": 2.0
+  },
+  {
+    "distrito1_id": 6,
+    "distrito2_id": 16,
+    "distancia_km": 2.87
+  },
+  {
+    "distrito1_id": 6,
+    "distrito2_id": 19,
+    "distancia_km": 3.16
+  },
+  {
+    "distrito1_id": 7,
+    "distrito2_id": 8,
+    "distancia_km": 1.69
+  },
+  {
+    "distrito1_id": 7,
+    "distrito2_id": 11,
+    "distancia_km": 1.56
+  },
+  {
+    "distrito1_id": 7,
+    "distrito2_id": 12,
+    "distancia_km": 2.86
+  },
+  {
+    "distrito1_id": 7,
+    "distrito2_id": 43,
+    "distancia_km": 2.53
+  },
+  {
+    "distrito1_id": 7,
+    "distrito2_id": 44,
+    "distancia_km": 3.56
+  },
+  {
+    "distrito1_id": 7,
+    "distrito2_id": 45,
+    "distancia_km": 2.89
+  },
+  {
+    "distrito1_id": 8,
+    "distrito2_id": 11,
+    "distancia_km": 2.04
+  },
+  {
+    "distrito1_id": 8,
+    "distrito2_id": 12,
+    "distancia_km": 1.62
+  },
+  {
+    "distrito1_id": 8,
+    "distrito2_id": 43,
+    "distancia_km": 2.53
+  },
+  {
+    "distrito1_id": 8,
+    "distrito2_id": 60,
+    "distancia_km": 3.6
+  },
+  {
+    "distrito1_id": 9,
+    "distrito2_id": 10,
+    "distancia_km": 3.67
+  },
+  {
+    "distrito1_id": 9,
+    "distrito2_id": 13,
+    "distancia_km": 1.95
+  },
+  {
+    "distrito1_id": 9,
+    "distrito2_id": 17,
+    "distancia_km": 2.41
+  },
+  {
+    "distrito1_id": 10,
+    "distrito2_id": 15,
+    "distancia_km": 2.97
+  },
+  {
+    "distrito1_id": 10,
+    "distrito2_id": 16,
+    "distancia_km": 2.7
+  },
+  {
+    "distrito1_id": 10,
+    "distrito2_id": 17,
+    "distancia_km": 1.38
+  },
+  {
+    "distrito1_id": 11,
+    "distrito2_id": 12,
+    "distancia_km": 3.64
+  },
+  {
+    "distrito1_id": 11,
+    "distrito2_id": 60,
+    "distancia_km": 2.59
+  },
+  {
+    "distrito1_id": 12,
+    "distrito2_id": 37,
+    "distancia_km": 2.74
+  },
+  {
+    "distrito1_id": 12,
+    "distrito2_id": 42,
+    "distancia_km": 2.62
+  },
+  {
+    "distrito1_id": 12,
+    "distrito2_id": 43,
+    "distancia_km": 1.91
+  },
+  {
+    "distrito1_id": 13,
+    "distrito2_id": 17,
+    "distancia_km": 3.02
+  },
+  {
+    "distrito1_id": 13,
+    "distrito2_id": 45,
+    "distancia_km": 2.75
+  },
+  {
+    "distrito1_id": 14,
+    "distrito2_id": 16,
+    "distancia_km": 3.12
+  },
+  {
+    "distrito1_id": 14,
+    "distrito2_id": 18,
+    "distancia_km": 1.14
+  },
+  {
+    "distrito1_id": 14,
+    "distrito2_id": 19,
+    "distancia_km": 2.4
+  },
+  {
+    "distrito1_id": 15,
+    "distrito2_id": 16,
+    "distancia_km": 1.57
+  },
+  {
+    "distrito1_id": 15,
+    "distrito2_id": 17,
+    "distancia_km": 2.97
+  },
+  {
+    "distrito1_id": 16,
+    "distrito2_id": 17,
+    "distancia_km": 3.4
+  },
+  {
+    "distrito1_id": 18,
+    "distrito2_id": 19,
+    "distancia_km": 2.21
+  },
+  {
+    "distrito1_id": 18,
+    "distrito2_id": 67,
+    "distancia_km": 3.3
+  },
+  {
+    "distrito1_id": 19,
+    "distrito2_id": 60,
+    "distancia_km": 3.2
+  },
+  {
+    "distrito1_id": 19,
+    "distrito2_id": 61,
+    "distancia_km": 2.84
+  },
+  {
+    "distrito1_id": 20,
+    "distrito2_id": 21,
+    "distancia_km": 1.17
+  },
+  {
+    "distrito1_id": 20,
+    "distrito2_id": 22,
+    "distancia_km": 1.67
+  },
+  {
+    "distrito1_id": 20,
+    "distrito2_id": 23,
+    "distancia_km": 1.38
+  },
+  {
+    "distrito1_id": 20,
+    "distrito2_id": 26,
+    "distancia_km": 2.96
+  },
+  {
+    "distrito1_id": 20,
+    "distrito2_id": 27,
+    "distancia_km": 1.41
+  },
+  {
+    "distrito1_id": 20,
+    "distrito2_id": 30,
+    "distancia_km": 3.12
+  },
+  {
+    "distrito1_id": 20,
+    "distrito2_id": 33,
+    "distancia_km": 3.32
+  },
+  {
+    "distrito1_id": 21,
+    "distrito2_id": 22,
+    "distancia_km": 2.65
+  },
+  {
+    "distrito1_id": 21,
+    "distrito2_id": 23,
+    "distancia_km": 1.95
+  },
+  {
+    "distrito1_id": 21,
+    "distrito2_id": 26,
+    "distancia_km": 2.38
+  },
+  {
+    "distrito1_id": 21,
+    "distrito2_id": 27,
+    "distancia_km": 1.22
+  },
+  {
+    "distrito1_id": 21,
+    "distrito2_id": 30,
+    "distancia_km": 2.85
+  },
+  {
+    "distrito1_id": 21,
+    "distrito2_id": 35,
+    "distancia_km": 3.32
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 23,
+    "distancia_km": 1.04
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 24,
+    "distancia_km": 3.1
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 25,
+    "distancia_km": 3.66
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 26,
+    "distancia_km": 3.35
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 27,
+    "distancia_km": 2.04
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 30,
+    "distancia_km": 3.06
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 31,
+    "distancia_km": 3.39
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 32,
+    "distancia_km": 2.92
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 33,
+    "distancia_km": 1.77
+  },
+  {
+    "distrito1_id": 22,
+    "distrito2_id": 36,
+    "distancia_km": 2.95
+  },
+  {
+    "distrito1_id": 23,
+    "distrito2_id": 24,
+    "distancia_km": 2.69
+  },
+  {
+    "distrito1_id": 23,
+    "distrito2_id": 25,
+    "distancia_km": 3.12
+  },
+  {
+    "distrito1_id": 23,
+    "distrito2_id": 26,
+    "distancia_km": 2.32
+  },
+  {
+    "distrito1_id": 23,
+    "distrito2_id": 27,
+    "distancia_km": 1.04
+  },
+  {
+    "distrito1_id": 23,
+    "distrito2_id": 30,
+    "distancia_km": 2.11
+  },
+  {
+    "distrito1_id": 23,
+    "distrito2_id": 31,
+    "distancia_km": 2.67
+  },
+  {
+    "distrito1_id": 23,
+    "distrito2_id": 33,
+    "distancia_km": 2.75
+  },
+  {
+    "distrito1_id": 23,
+    "distrito2_id": 36,
+    "distancia_km": 3.41
+  },
+  {
+    "distrito1_id": 24,
+    "distrito2_id": 25,
+    "distancia_km": 0.67
+  },
+  {
+    "distrito1_id": 24,
+    "distrito2_id": 26,
+    "distancia_km": 2.8
+  },
+  {
+    "distrito1_id": 24,
+    "distrito2_id": 27,
+    "distancia_km": 3.07
+  },
+  {
+    "distrito1_id": 24,
+    "distrito2_id": 30,
+    "distancia_km": 1.94
+  },
+  {
+    "distrito1_id": 24,
+    "distrito2_id": 31,
+    "distancia_km": 1.09
+  },
+  {
+    "distrito1_id": 24,
+    "distrito2_id": 36,
+    "distancia_km": 2.53
+  },
+  {
+    "distrito1_id": 24,
+    "distrito2_id": 37,
+    "distancia_km": 2.9
+  },
+  {
+    "distrito1_id": 24,
+    "distrito2_id": 54,
+    "distancia_km": 3.36
+  },
+  {
+    "distrito1_id": 25,
+    "distrito2_id": 26,
+    "distancia_km": 2.7
+  },
+  {
+    "distrito1_id": 25,
+    "distrito2_id": 27,
+    "distancia_km": 3.3
+  },
+  {
+    "distrito1_id": 25,
+    "distrito2_id": 30,
+    "distancia_km": 1.85
+  },
+  {
+    "distrito1_id": 25,
+    "distrito2_id": 31,
+    "distancia_km": 0.8
+  },
+  {
+    "distrito1_id": 25,
+    "distrito2_id": 36,
+    "distancia_km": 3.15
+  },
+  {
+    "distrito1_id": 25,
+    "distrito2_id": 37,
+    "distancia_km": 3.37
+  },
+  {
+    "distrito1_id": 25,
+    "distrito2_id": 54,
+    "distancia_km": 2.69
+  },
+  {
+    "distrito1_id": 26,
+    "distrito2_id": 27,
+    "distancia_km": 1.56
+  },
+  {
+    "distrito1_id": 26,
+    "distrito2_id": 30,
+    "distancia_km": 0.87
+  },
+  {
+    "distrito1_id": 26,
+    "distrito2_id": 31,
+    "distancia_km": 1.9
+  },
+  {
+    "distrito1_id": 26,
+    "distrito2_id": 34,
+    "distancia_km": 2.82
+  },
+  {
+    "distrito1_id": 26,
+    "distrito2_id": 35,
+    "distancia_km": 2.98
+  },
+  {
+    "distrito1_id": 27,
+    "distrito2_id": 30,
+    "distancia_km": 1.75
+  },
+  {
+    "distrito1_id": 27,
+    "distrito2_id": 31,
+    "distancia_km": 2.65
+  },
+  {
+    "distrito1_id": 27,
+    "distrito2_id": 35,
+    "distancia_km": 3.66
+  },
+  {
+    "distrito1_id": 28,
+    "distrito2_id": 29,
+    "distancia_km": 1.2
+  },
+  {
+    "distrito1_id": 28,
+    "distrito2_id": 40,
+    "distancia_km": 0.84
+  },
+  {
+    "distrito1_id": 28,
+    "distrito2_id": 41,
+    "distancia_km": 2.41
+  },
+  {
+    "distrito1_id": 28,
+    "distrito2_id": 44,
+    "distancia_km": 3.54
+  },
+  {
+    "distrito1_id": 28,
+    "distrito2_id": 46,
+    "distancia_km": 2.1
+  },
+  {
+    "distrito1_id": 28,
+    "distrito2_id": 47,
+    "distancia_km": 2.01
+  },
+  {
+    "distrito1_id": 29,
+    "distrito2_id": 40,
+    "distancia_km": 1.95
+  },
+  {
+    "distrito1_id": 29,
+    "distrito2_id": 41,
+    "distancia_km": 3.61
+  },
+  {
+    "distrito1_id": 29,
+    "distrito2_id": 46,
+    "distancia_km": 2.75
+  },
+  {
+    "distrito1_id": 29,
+    "distrito2_id": 47,
+    "distancia_km": 2.37
+  },
+  {
+    "distrito1_id": 30,
+    "distrito2_id": 31,
+    "distancia_km": 1.07
+  },
+  {
+    "distrito1_id": 30,
+    "distrito2_id": 34,
+    "distancia_km": 3.62
+  },
+  {
+    "distrito1_id": 30,
+    "distrito2_id": 54,
+    "distancia_km": 3.43
+  },
+  {
+    "distrito1_id": 31,
+    "distrito2_id": 36,
+    "distancia_km": 3.56
+  },
+  {
+    "distrito1_id": 31,
+    "distrito2_id": 52,
+    "distancia_km": 3.6
+  },
+  {
+    "distrito1_id": 31,
+    "distrito2_id": 54,
+    "distancia_km": 2.78
+  },
+  {
+    "distrito1_id": 32,
+    "distrito2_id": 33,
+    "distancia_km": 1.16
+  },
+  {
+    "distrito1_id": 32,
+    "distrito2_id": 36,
+    "distancia_km": 2.18
+  },
+  {
+    "distrito1_id": 32,
+    "distrito2_id": 37,
+    "distancia_km": 3.05
+  },
+  {
+    "distrito1_id": 32,
+    "distrito2_id": 38,
+    "distancia_km": 1.61
+  },
+  {
+    "distrito1_id": 32,
+    "distrito2_id": 39,
+    "distancia_km": 3.63
+  },
+  {
+    "distrito1_id": 32,
+    "distrito2_id": 41,
+    "distancia_km": 2.88
+  },
+  {
+    "distrito1_id": 33,
+    "distrito2_id": 36,
+    "distancia_km": 2.17
+  },
+  {
+    "distrito1_id": 33,
+    "distrito2_id": 37,
+    "distancia_km": 3.29
+  },
+  {
+    "distrito1_id": 33,
+    "distrito2_id": 38,
+    "distancia_km": 2.31
+  },
+  {
+    "distrito1_id": 34,
+    "distrito2_id": 35,
+    "distancia_km": 0.8
+  },
+  {
+    "distrito1_id": 36,
+    "distrito2_id": 37,
+    "distancia_km": 1.17
+  },
+  {
+    "distrito1_id": 36,
+    "distrito2_id": 42,
+    "distancia_km": 2.94
+  },
+  {
+    "distrito1_id": 37,
+    "distrito2_id": 42,
+    "distancia_km": 2.11
+  },
+  {
+    "distrito1_id": 37,
+    "distrito2_id": 43,
+    "distancia_km": 3.02
+  },
+  {
+    "distrito1_id": 38,
+    "distrito2_id": 39,
+    "distancia_km": 2.05
+  },
+  {
+    "distrito1_id": 38,
+    "distrito2_id": 41,
+    "distancia_km": 2.17
+  },
+  {
+    "distrito1_id": 39,
+    "distrito2_id": 41,
+    "distancia_km": 2.3
+  },
+  {
+    "distrito1_id": 40,
+    "distrito2_id": 41,
+    "distancia_km": 1.84
+  },
+  {
+    "distrito1_id": 40,
+    "distrito2_id": 44,
+    "distancia_km": 3.1
+  },
+  {
+    "distrito1_id": 40,
+    "distrito2_id": 46,
+    "distancia_km": 1.5
+  },
+  {
+    "distrito1_id": 40,
+    "distrito2_id": 47,
+    "distancia_km": 1.65
+  },
+  {
+    "distrito1_id": 41,
+    "distrito2_id": 46,
+    "distancia_km": 2.74
+  },
+  {
+    "distrito1_id": 41,
+    "distrito2_id": 47,
+    "distancia_km": 3.2
+  },
+  {
+    "distrito1_id": 42,
+    "distrito2_id": 43,
+    "distancia_km": 1.43
+  },
+  {
+    "distrito1_id": 42,
+    "distrito2_id": 44,
+    "distancia_km": 2.24
+  },
+  {
+    "distrito1_id": 42,
+    "distrito2_id": 46,
+    "distancia_km": 2.49
+  },
+  {
+    "distrito1_id": 42,
+    "distrito2_id": 47,
+    "distancia_km": 2.94
+  },
+  {
+    "distrito1_id": 43,
+    "distrito2_id": 44,
+    "distancia_km": 2.05
+  },
+  {
+    "distrito1_id": 43,
+    "distrito2_id": 45,
+    "distancia_km": 2.93
+  },
+  {
+    "distrito1_id": 43,
+    "distrito2_id": 46,
+    "distancia_km": 3.16
+  },
+  {
+    "distrito1_id": 43,
+    "distrito2_id": 47,
+    "distancia_km": 3.36
+  },
+  {
+    "distrito1_id": 44,
+    "distrito2_id": 45,
+    "distancia_km": 1.82
+  },
+  {
+    "distrito1_id": 44,
+    "distrito2_id": 46,
+    "distancia_km": 1.66
+  },
+  {
+    "distrito1_id": 44,
+    "distrito2_id": 47,
+    "distancia_km": 1.52
+  },
+  {
+    "distrito1_id": 45,
+    "distrito2_id": 46,
+    "distancia_km": 3.31
+  },
+  {
+    "distrito1_id": 45,
+    "distrito2_id": 47,
+    "distancia_km": 2.93
+  },
+  {
+    "distrito1_id": 46,
+    "distrito2_id": 47,
+    "distancia_km": 0.65
+  },
+  {
+    "distrito1_id": 48,
+    "distrito2_id": 51,
+    "distancia_km": 2.34
+  },
+  {
+    "distrito1_id": 48,
+    "distrito2_id": 52,
+    "distancia_km": 2.96
+  },
+  {
+    "distrito1_id": 48,
+    "distrito2_id": 55,
+    "distancia_km": 3.66
+  },
+  {
+    "distrito1_id": 48,
+    "distrito2_id": 56,
+    "distancia_km": 0.67
+  },
+  {
+    "distrito1_id": 49,
+    "distrito2_id": 50,
+    "distancia_km": 3.19
+  },
+  {
+    "distrito1_id": 49,
+    "distrito2_id": 53,
+    "distancia_km": 3.55
+  },
+  {
+    "distrito1_id": 50,
+    "distrito2_id": 53,
+    "distancia_km": 3.25
+  },
+  {
+    "distrito1_id": 50,
+    "distrito2_id": 64,
+    "distancia_km": 1.52
+  },
+  {
+    "distrito1_id": 50,
+    "distrito2_id": 65,
+    "distancia_km": 3.64
+  },
+  {
+    "distrito1_id": 51,
+    "distrito2_id": 56,
+    "distancia_km": 2.76
+  },
+  {
+    "distrito1_id": 52,
+    "distrito2_id": 54,
+    "distancia_km": 1.62
+  },
+  {
+    "distrito1_id": 52,
+    "distrito2_id": 55,
+    "distancia_km": 2.83
+  },
+  {
+    "distrito1_id": 52,
+    "distrito2_id": 56,
+    "distancia_km": 2.61
+  },
+  {
+    "distrito1_id": 53,
+    "distrito2_id": 68,
+    "distancia_km": 2.91
+  },
+  {
+    "distrito1_id": 53,
+    "distrito2_id": 71,
+    "distancia_km": 1.64
+  },
+  {
+    "distrito1_id": 54,
+    "distrito2_id": 55,
+    "distancia_km": 3.01
+  },
+  {
+    "distrito1_id": 57,
+    "distrito2_id": 62,
+    "distancia_km": 3.64
+  },
+  {
+    "distrito1_id": 57,
+    "distrito2_id": 63,
+    "distancia_km": 1.92
+  },
+  {
+    "distrito1_id": 57,
+    "distrito2_id": 65,
+    "distancia_km": 3.42
+  },
+  {
+    "distrito1_id": 57,
+    "distrito2_id": 68,
+    "distancia_km": 3.03
+  },
+  {
+    "distrito1_id": 57,
+    "distrito2_id": 69,
+    "distancia_km": 2.4
+  },
+  {
+    "distrito1_id": 57,
+    "distrito2_id": 70,
+    "distancia_km": 3.04
+  },
+  {
+    "distrito1_id": 58,
+    "distrito2_id": 59,
+    "distancia_km": 1.24
+  },
+  {
+    "distrito1_id": 58,
+    "distrito2_id": 61,
+    "distancia_km": 2.51
+  },
+  {
+    "distrito1_id": 58,
+    "distrito2_id": 66,
+    "distancia_km": 1.06
+  },
+  {
+    "distrito1_id": 58,
+    "distrito2_id": 67,
+    "distancia_km": 2.26
+  },
+  {
+    "distrito1_id": 58,
+    "distrito2_id": 69,
+    "distancia_km": 3.57
+  },
+  {
+    "distrito1_id": 58,
+    "distrito2_id": 70,
+    "distancia_km": 3.0
+  },
+  {
+    "distrito1_id": 59,
+    "distrito2_id": 61,
+    "distancia_km": 2.05
+  },
+  {
+    "distrito1_id": 59,
+    "distrito2_id": 65,
+    "distancia_km": 3.15
+  },
+  {
+    "distrito1_id": 59,
+    "distrito2_id": 66,
+    "distancia_km": 2.04
+  },
+  {
+    "distrito1_id": 59,
+    "distrito2_id": 67,
+    "distancia_km": 3.22
+  },
+  {
+    "distrito1_id": 59,
+    "distrito2_id": 69,
+    "distancia_km": 3.62
+  },
+  {
+    "distrito1_id": 59,
+    "distrito2_id": 70,
+    "distancia_km": 3.21
+  },
+  {
+    "distrito1_id": 60,
+    "distrito2_id": 61,
+    "distancia_km": 2.29
+  },
+  {
+    "distrito1_id": 61,
+    "distrito2_id": 66,
+    "distancia_km": 2.37
+  },
+  {
+    "distrito1_id": 61,
+    "distrito2_id": 67,
+    "distancia_km": 2.97
+  },
+  {
+    "distrito1_id": 62,
+    "distrito2_id": 63,
+    "distancia_km": 2.43
+  },
+  {
+    "distrito1_id": 62,
+    "distrito2_id": 69,
+    "distancia_km": 2.27
+  },
+  {
+    "distrito1_id": 62,
+    "distrito2_id": 70,
+    "distancia_km": 2.18
+  },
+  {
+    "distrito1_id": 63,
+    "distrito2_id": 69,
+    "distancia_km": 2.67
+  },
+  {
+    "distrito1_id": 63,
+    "distrito2_id": 70,
+    "distancia_km": 3.13
+  },
+  {
+    "distrito1_id": 64,
+    "distrito2_id": 65,
+    "distancia_km": 2.17
+  },
+  {
+    "distrito1_id": 65,
+    "distrito2_id": 69,
+    "distancia_km": 2.83
+  },
+  {
+    "distrito1_id": 65,
+    "distrito2_id": 70,
+    "distancia_km": 3.04
+  },
+  {
+    "distrito1_id": 66,
+    "distrito2_id": 67,
+    "distancia_km": 1.21
+  },
+  {
+    "distrito1_id": 68,
+    "distrito2_id": 71,
+    "distancia_km": 2.81
+  },
+  {
+    "distrito1_id": 69,
+    "distrito2_id": 70,
+    "distancia_km": 0.65
+  }
+]
