@@ -188,7 +188,33 @@ Executar a interface complementar:
 python -m streamlit run src/app.py
 ```
 
-Observação para deploy:
+## Publicação do Aplicativo
+
+A interface foi desenvolvida em **Streamlit**. O deploy recomendado e o
+**Streamlit Community Cloud**, que executa diretamente aplicacoes Streamlit
+vinculadas ao GitHub.
+
+Configuracao para publicar:
+
+1. Acesse `https://share.streamlit.io/` e conecte sua conta do GitHub.
+2. Clique em **Create app**.
+3. Selecione o repositorio `Lucas-FcNw/rede-de-acesso-sp`.
+4. Selecione a branch `main`.
+5. Informe como arquivo principal: `src/app.py`.
+6. Clique em **Deploy**.
+
+O repositorio pode ser privado, desde que o Streamlit Community Cloud tenha
+permissao de leitura para acessa-lo.
+
+### Por que nao usar Vercel neste projeto
+
+A Vercel identifica arquivos Python como funcoes web e espera que
+`src/app.py` exporte uma variavel como `app`, `application` ou `handler`.
+Neste projeto, `src/app.py` e uma aplicacao Streamlit e deve ser iniciada com
+`streamlit run`; portanto, ela nao e um endpoint Python compativel com o
+runtime serverless da Vercel sem uma reimplementacao da interface.
+
+Observacoes da entrega:
 
 - Os relatórios, PDFs, wireframes, imagens de apoio, dados brutos e caches foram removidos.
 - O app usa os JSONs finais e o KML presentes na pasta `data/`.
