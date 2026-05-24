@@ -207,7 +207,6 @@ if MODO_CLARO:
     ACCENT_GREEN = "#15803d"
     ACCENT_AMBER = "#b45309"
     ACCENT_RED = "#dc2626"
-    MAP_STYLE = "carto-positron"
     HOVER_BG = "#ffffff"
 else:
     PLOT_BG = "#101217"
@@ -221,14 +220,54 @@ else:
     ACCENT_RED = "#ef6b5a"
     HOVER_BG = "#22342b"
 
-MAP_STYLE = "carto-positron"
+MAP_STYLE_FALLBACK = "carto-positron"
+MAP_STYLE_URL = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
 MAP_BG = "#ffffff"
 MAP_FONT = "#1f2937"
 MAP_MUTED = "#4b5563"
 MAP_HOVER_BG = "#ffffff"
+MAP_ROUTE_COLOR = "#2563eb"
+MAP_ROUTE_HALO_COLOR = "rgba(37, 99, 235, 0.18)"
 # No estilo CARTO Positron, as camadas de nomes de vias comecam aqui.
 # A rota e inserida antes delas para manter os nomes legiveis.
 MAP_ROAD_LABEL_LAYER = "roadname_minor"
+
+
+@st.cache_data(ttl=60 * 60 * 24, show_spinner=False)
+def carregar_estilo_mapa_legivel() -> dict | str:
+    """Mantem o Positron, mas reforca os rotulos necessarios para ler rotas."""
+    req = Request(
+        MAP_STYLE_URL,
+        headers={"User-Agent": "RedeAcessoSP/1.0 (academic project)"},
+    )
+    try:
+        with urlopen(req, timeout=8) as resp:
+            estilo = json.loads(resp.read().decode("utf-8"))
+    except (HTTPError, URLError, TimeoutError, json.JSONDecodeError):
+        return MAP_STYLE_FALLBACK
+
+    tamanhos_rotulos = {
+        "roadname_minor": {"stops": [[12, 10], [14, 12], [16, 14], [18, 16]]},
+        "roadname_sec": {"stops": [[12, 11], [14, 12], [16, 14], [18, 16]]},
+        "roadname_pri": {"stops": [[12, 12], [14, 13], [16, 15], [18, 17]]},
+        "roadname_major": {"stops": [[12, 12], [14, 13], [16, 15], [18, 17]]},
+    }
+    for camada in estilo.get("layers", []):
+        camada_id = camada.get("id", "")
+        if camada_id not in tamanhos_rotulos:
+            continue
+        camada.setdefault("layout", {})["text-size"] = tamanhos_rotulos[camada_id]
+        camada["layout"]["text-letter-spacing"] = 0
+        camada.setdefault("paint", {}).update({
+            "text-color": "#111827",
+            "text-halo-color": "#ffffff",
+            "text-halo-width": 2,
+            "text-halo-blur": 0.35,
+        })
+    return estilo
+
+
+MAP_STYLE = carregar_estilo_mapa_legivel()
 
 SP_BOUNDS = {
     "lat_min": -24.02,
@@ -478,9 +517,10 @@ def criar_figura_exemplo_recomendacao(grafo_obj: GrafoSP, metricas_obj: Metricas
             mode="lines",
             below=MAP_ROAD_LABEL_LAYER,
             line=dict(
-                color=ACCENT_RED if did == int(recomendada["id"]) else "rgba(90, 100, 115, 0.42)",
-                width=4 if did == int(recomendada["id"]) else 1.4,
+                color=MAP_ROUTE_COLOR if did == int(recomendada["id"]) else "rgba(90, 100, 115, 0.32)",
+                width=3 if did == int(recomendada["id"]) else 1.2,
             ),
+            opacity=0.78,
             hoverinfo="skip",
             showlegend=False,
         ))
@@ -491,7 +531,7 @@ def criar_figura_exemplo_recomendacao(grafo_obj: GrafoSP, metricas_obj: Metricas
         mode="markers",
         marker=dict(
             size=[17 if did == int(recomendada["id"]) else 11 for did in ids_exemplo],
-            color=[ACCENT_RED if did == int(recomendada["id"]) else ACCENT_AMBER for did in ids_exemplo],
+            color=[MAP_ROUTE_COLOR if did == int(recomendada["id"]) else ACCENT_AMBER for did in ids_exemplo],
             opacity=0.95,
         ),
         customdata=[
@@ -1686,7 +1726,17 @@ with tab1:
                 lon=rota_lons,
                 mode="lines",
                 below=MAP_ROAD_LABEL_LAYER,
-                line=dict(color=ACCENT_RED, width=5),
+                line=dict(color=MAP_ROUTE_HALO_COLOR, width=9),
+                hoverinfo="skip",
+                showlegend=False,
+            ))
+            fig_map.add_trace(go.Scattermap(
+                lat=rota_lats,
+                lon=rota_lons,
+                mode="lines",
+                below=MAP_ROAD_LABEL_LAYER,
+                line=dict(color=MAP_ROUTE_COLOR, width=3.5),
+                opacity=0.84,
                 hoverinfo="skip",
                 name="Rota até a UBS",
                 showlegend=True,
