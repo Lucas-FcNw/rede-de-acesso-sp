@@ -226,6 +226,9 @@ MAP_BG = "#ffffff"
 MAP_FONT = "#1f2937"
 MAP_MUTED = "#4b5563"
 MAP_HOVER_BG = "#ffffff"
+# No estilo CARTO Positron, as camadas de nomes de vias comecam aqui.
+# A rota e inserida antes delas para manter os nomes legiveis.
+MAP_ROAD_LABEL_LAYER = "roadname_minor"
 
 SP_BOUNDS = {
     "lat_min": -24.02,
@@ -473,6 +476,7 @@ def criar_figura_exemplo_recomendacao(grafo_obj: GrafoSP, metricas_obj: Metricas
             lat=[exemplo["lat"], ubs["lat"]],
             lon=[exemplo["lon"], ubs["lon"]],
             mode="lines",
+            below=MAP_ROAD_LABEL_LAYER,
             line=dict(
                 color=ACCENT_RED if did == int(recomendada["id"]) else "rgba(90, 100, 115, 0.42)",
                 width=4 if did == int(recomendada["id"]) else 1.4,
@@ -1681,6 +1685,7 @@ with tab1:
                 lat=rota_lats,
                 lon=rota_lons,
                 mode="lines",
+                below=MAP_ROAD_LABEL_LAYER,
                 line=dict(color=ACCENT_RED, width=5),
                 hoverinfo="skip",
                 name="Rota até a UBS",
