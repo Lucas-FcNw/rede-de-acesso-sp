@@ -23,13 +23,13 @@ Este arquivo documenta a origem dos dados usados na entrega da Rede de Acesso SP
   https://buscasaude.prefeitura.sp.gov.br/
 
 - Prefeitura de Sao Paulo - Areas de Abrangencia das UBSs  
-  https://prefeitura.sp.gov.br/saude/w/epidemiologia_e_informacao/geoprocessamento_e_informacoes_socioambientais/265863
+  [Pagina oficial das AAUBS](https://prefeitura.sp.gov.br/saude/w/epidemiologia_e_informacao/geoprocessamento_e_informacoes_socioambientais/265863)
 
 - SMS-SP/CEInfo - Dados demograficos e socioambientais por AAUBS 2025 preliminar (Censo 2022/IBGE)
-  https://drive.google.com/drive/folders/12w8xMlspq1f-yWxl_xRVFkv1p4psNMQZ?usp=sharing
+  [Dados oficiais AAUBS 2025](https://drive.google.com/drive/folders/12w8xMlspq1f-yWxl_xRVFkv1p4psNMQZ?usp=sharing)
 
 - SMS-SP - Quadro de parametros para territorializacao (Documento Norteador NUVIS-AB, versao 2025)
-  https://prefeitura.sp.gov.br/documents/d/saude/quadro_territorializacao_2025-pdf
+  [Quadro de territorializacao 2025](https://prefeitura.sp.gov.br/documents/d/saude/quadro_territorializacao_2025-pdf)
 
 - GeoSampa - Download de dados geograficos do Mapa Digital da Cidade de Sao Paulo  
   https://download.geosampa.prefeitura.sp.gov.br/
@@ -39,6 +39,16 @@ Este arquivo documenta a origem dos dados usados na entrega da Rede de Acesso SP
 
 - Prefeitura de Sao Paulo/SMS - Populacao do Municipio de Sao Paulo por distrito, subprefeitura e regioes de saude  
   https://prefeitura.sp.gov.br/web/saude/w/tabnet/30417
+
+## Rastreabilidade do Peso dos Vertices
+
+| Item metodologico | Registro utilizado no projeto |
+| --- | --- |
+| Base efetivamente aplicada ao peso | Dados sociodemograficos por Area de Abrangencia de UBS (AAUBS 2025 preliminar), SMS-SP/CEInfo, estimados a partir do Censo Demografico 2022/IBGE |
+| Variavel extraida | `V001AAUBS - Total de pessoas` |
+| Chave de associacao | `CNESAAUBS` da base oficial associado ao campo `cnes` da UBS no projeto |
+| Cobertura da associacao | `71 de 71` vertices associados a uma AAUBS |
+| Limitacao do peso | Sem fonte publica completa de capacidade ou numero de equipes por UBS, o valor representa demanda territorial potencial, nao fila real ou tempo de espera. |
 
 ## Observacoes
 
