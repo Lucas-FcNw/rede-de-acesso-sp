@@ -491,7 +491,7 @@ def criar_figura_grafo_completo(grafo_obj: GrafoSP):
 
 
 def criar_figura_exemplo_recomendacao(grafo_obj: GrafoSP, metricas_obj: MetricasAcessibilidade):
-    """Exemplo didático fixo para explicar a recomendação por pressão."""
+    """Exemplo didático fixo para explicar a recomendação por abrangência."""
     exemplo = {
         "label": "Rua Piauí, 144, Higienópolis",
         "lat": -23.5449808,
@@ -1004,7 +1004,7 @@ def anexar_pressao_ao_ranking(
     ranking: list[dict],
     ranking_cobertura: pd.DataFrame,
 ) -> list[dict]:
-    """Acrescenta pressão territorial aos candidatos encontrados por distância."""
+    """Acrescenta população da área de abrangência aos candidatos próximos."""
     cobertura_por_id = ranking_cobertura.set_index("distrito_id").to_dict("index")
     resultado = []
 
@@ -1015,8 +1015,8 @@ def anexar_pressao_ao_ranking(
         novo["bairro"] = cobertura.get("bairro", novo.get("bairro", "N/D"))
         novo["populacao"] = int(float(cobertura.get("populacao", 0) or 0))
         novo["qtd_ubs_distrito"] = int(cobertura.get("qtd_ubs_distrito", 0) or 0)
-        novo["habitantes_por_ubs"] = float(
-            cobertura.get("habitantes_por_ubs", float("inf"))
+        novo["populacao_abrangencia"] = float(
+            cobertura.get("populacao_abrangencia", float("inf"))
         )
         novo["score_cobertura"] = float(cobertura.get("score", 0.0) or 0.0)
         resultado.append(novo)
@@ -1025,11 +1025,11 @@ def anexar_pressao_ao_ranking(
 
 
 def ordenar_por_menor_pressao(ranking: list[dict]) -> list[dict]:
-    """Prioriza UBSs com menor pressão e usa distância apenas como desempate."""
+    """Prioriza UBSs com menor população de abrangência e desempata por distância."""
     return sorted(
         ranking,
         key=lambda item: (
-            float(item.get("habitantes_por_ubs", float("inf"))),
+            float(item.get("populacao_abrangencia", float("inf"))),
             float(item.get("distancia_km", float("inf"))),
         ),
     )
@@ -1270,7 +1270,7 @@ nomes_lista = list(opcoes_distrito.keys())
 
 st.title("Rede de Acesso SP")
 st.caption(
-    "Saúde territorial em São Paulo: proximidade, pressão populacional e rede de UBSs reais."
+    "Saúde territorial em São Paulo: proximidade e população estimada nas áreas de abrangência das UBSs."
 )
 
 distrito_id = int(st.session_state["distrito_id"])
@@ -1295,9 +1295,9 @@ tab1, tab2, tab3, tab4 = st.tabs([
 # ============================================================================
 
 with tab1:
-    st.subheader("Encontrar UBS próxima com maior chance de atendimento rápido")
+    st.subheader("Encontrar UBS próxima com menor demanda territorial estimada")
     st.caption(
-        "Informe um endereço ou filtre uma área. O sistema compara UBSs próximas e prioriza menor pressão territorial, indicando maior chance de atendimento mais rápido."
+        "Informe um endereço ou filtre uma área. O sistema compara UBSs próximas e prioriza áreas de abrangência com menor população estimada."
     )
 
     with st.container(border=True):
@@ -1475,7 +1475,7 @@ with tab1:
                     )
                     st.caption(
                         "A recomendação compara apenas UBSs dentro desse raio; "
-                        "a pressão territorial ordena as candidatas próximas."
+                        "a população estimada da área de abrangência ordena as candidatas próximas."
                     )
                     mesmo_distrito = st.checkbox(
                         "Mesmo distrito da UBS selecionada",
@@ -1505,7 +1505,7 @@ with tab1:
                 opcoes_categoria = sorted(
                     opcoes_categoria,
                     key=lambda item: (
-                        float(item.get("habitantes_por_ubs", float("inf"))),
+                        float(item.get("populacao_abrangencia", float("inf"))),
                         item["distancia_rota_km"] is None,
                         item["distancia_rota_km"]
                         if item["distancia_rota_km"] is not None
@@ -1540,7 +1540,7 @@ with tab1:
                 if opcoes_categoria:
                     st.markdown(f"#### UBSs recomendadas em até {distancia_maxima:.1f} km")
                     st.caption(
-                        f"{len(opcoes_categoria)} opções comparadas. A recomendação prioriza menor habitantes por UBS; distância entra como critério de desempate."
+                        f"{len(opcoes_categoria)} opções comparadas. A recomendação prioriza menor população na área de abrangência; distância entra como desempate."
                     )
                     colunas_cards = st.columns(min(3, max(1, len(opcoes_categoria))))
                     for idx, item in enumerate(opcoes_categoria):
@@ -1559,10 +1559,10 @@ with tab1:
                                     else "N/D"
                                 )
                                 pressao_texto_card = (
-                                    f"{item['habitantes_por_ubs']:,.0f}".replace(",", ".")
+                                    f"{item['populacao_abrangencia']:,.0f}".replace(",", ".")
                                 )
                                 st.markdown(
-                                    f"Pressão: **{pressao_texto_card} hab./UBS**  \n"
+                                    f"Abrangência: **{pressao_texto_card} pessoas**  \n"
                                     f"Rota: **{rota_texto_card}**"
                                 )
                                 st.caption(
@@ -1815,7 +1815,7 @@ with tab1:
         st.markdown(f"Bairro: **{d.get('bairro', 'N/D')}**")
         st.markdown(f"Distrito: **{d.get('distrito', 'N/D')}**")
         st.markdown(f"Zona: **{d['zona']}**")
-        st.markdown(f"População do distrito: **{d['populacao']:,}**".replace(",", "."))
+        st.markdown(f"População da área de abrangência: **{d['populacao']:,}**".replace(",", "."))
         if d.get("endereco"):
             st.markdown(f"Endereço: {d['endereco']}")
         st.markdown(f"Lat: {d['lat']:.4f} | Lon: {d['lon']:.4f}")
@@ -1837,7 +1837,7 @@ with tab1:
             st.markdown("---")
             st.markdown("### Motivo da recomendação")
             st.markdown(
-                "A UBS foi comparada com outras unidades próximas e aparece pelo menor indicador de pressão territorial no raio atual."
+                "A UBS foi comparada com outras unidades próximas e aparece com menor população estimada em sua área de abrangência no raio atual."
             )
             st.markdown("### Caminho")
             if rota_endereco_ubs:
@@ -1896,30 +1896,30 @@ with tab2:
             ranking_cobertura_df["distrito_id"] == vid
         ]
         if not linha_vizinha.empty:
-            hab_vizinhos.append(float(linha_vizinha.iloc[0]["habitantes_por_ubs"]))
+            hab_vizinhos.append(float(linha_vizinha.iloc[0]["populacao_abrangencia"]))
     delta_vizinhos_texto = "sem vizinhas suficientes para comparação"
     if hab_vizinhos:
-        delta_vizinhos_analise = float(analise["habitantes_por_ubs"]) - (sum(hab_vizinhos) / len(hab_vizinhos))
-        delta_vizinhos_texto = f"{delta_vizinhos_analise:+.0f} hab./UBS em relação às vizinhas"
+        delta_vizinhos_analise = float(analise["populacao_abrangencia"]) - (sum(hab_vizinhos) / len(hab_vizinhos))
+        delta_vizinhos_texto = f"{delta_vizinhos_analise:+.0f} pessoas na abrangência em relação às vizinhas"
 
     # Métricas principais
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         st.metric(
-            "População do distrito",
+            "População da abrangência",
             f"{int(analise['populacao']):,}".replace(",", "."),
         )
     with col2:
         st.metric(
-            "UBSs no distrito",
+            "UBSs no distrito (contexto)",
             int(analise["qtd_ubs_distrito"]),
-            delta=f"{analise['ubs_por_10_mil']:.2f} por 10 mil hab.",
+            delta="não usado no peso",
         )
     with col3:
         st.metric(
-            "Habitantes por UBS",
-            f"{analise['habitantes_por_ubs']:,.0f}".replace(",", "."),
+            "Demanda territorial estimada",
+            f"{analise['populacao_abrangencia']:,.0f}".replace(",", "."),
             delta=f"{analise['diferenca_media_pressao']:+.0f} vs média",
             delta_color="inverse",
         )
@@ -1933,23 +1933,23 @@ with tab2:
     diferenca_pressao = float(analise["diferenca_media_pressao"])
     if diferenca_pressao > 0:
         st.warning(
-            "Leitura rápida: esta UBS está em um território com pressão acima da média do recorte."
+            "Leitura rápida: esta UBS possui área de abrangência com população estimada acima da média do recorte."
         )
     else:
         st.success(
-            "Leitura rápida: esta UBS está em um território com pressão igual ou menor que a média do recorte."
+            "Leitura rápida: esta UBS possui área de abrangência com população estimada igual ou menor que a média do recorte."
         )
 
     st.markdown("#### Resumo textual")
-    habitantes_texto = f"{analise['habitantes_por_ubs']:,.0f}".replace(",", ".")
-    media_recorte_texto = f"{analise['media_habitantes_por_ubs']:,.0f}".replace(",", ".")
+    habitantes_texto = f"{analise['populacao_abrangencia']:,.0f}".replace(",", ".")
+    media_recorte_texto = f"{analise['media_populacao_abrangencia']:,.0f}".replace(",", ".")
     st.markdown(
         f"A **{dados_ubs['nome']}** fica em **{dados_ubs.get('bairro', 'N/D')}**, "
         f"no distrito **{dados_ubs.get('distrito', 'N/D')}**. "
         f"A cobertura foi classificada como **{analise['classificacao']}**, "
         f"na posição **{analise['posicao']} de {analise['total_ubs']}** do ranking. "
-        f"O território tem **{habitantes_texto} habitantes por UBS**, "
-        f"com média do recorte de **{media_recorte_texto} hab./UBS**. "
+        f"A área de abrangência tem **{habitantes_texto} pessoas estimadas**, "
+        f"com média do recorte de **{media_recorte_texto} pessoas por AAUBS**. "
         f"A diferença em relação às UBSs vizinhas é **{delta_vizinhos_texto}**."
     )
 
@@ -1974,7 +1974,7 @@ with tab2:
         st.markdown(f"**Classificação:** {analise['classificacao']}")
         st.markdown(f"**Posição no ranking:** {analise['posicao']} de {analise['total_ubs']}")
         st.markdown(f"**Índice de cobertura:** {analise['score']:.1f}/100")
-        st.markdown(f"**Média do recorte:** {analise['media_habitantes_por_ubs']:,.0f} hab./UBS".replace(",", "."))
+        st.markdown(f"**Média do recorte:** {analise['media_populacao_abrangencia']:,.0f} pessoas por AAUBS".replace(",", "."))
 
     with col_vizinhos:
         st.markdown("#### UBSs Vizinhas")
@@ -1992,18 +1992,18 @@ with tab2:
                     "Bairro": linha.get("bairro", "N/D"),
                     "Distrito": linha["distrito"],
                     "Relação": f"{grafo.G[distrito_id][vid]['weight']:.1f} km",
-                    "Hab./UBS": round(float(linha["habitantes_por_ubs"]), 0),
+                    "Pop. abrangência": round(float(linha["populacao_abrangencia"]), 0),
                     "Índice": float(linha["score"]),
                 })
 
-            df_vizinhos = pd.DataFrame(dados_vizinhos).sort_values("Hab./UBS")
+            df_vizinhos = pd.DataFrame(dados_vizinhos).sort_values("Pop. abrangência")
             st.dataframe(df_vizinhos, width="stretch", hide_index=True)
 
-            media_vizinhos = float(df_vizinhos["Hab./UBS"].mean())
-            delta_vizinhos = float(analise["habitantes_por_ubs"]) - media_vizinhos
+            media_vizinhos = float(df_vizinhos["Pop. abrangência"].mean())
+            delta_vizinhos = float(analise["populacao_abrangencia"]) - media_vizinhos
             st.metric(
                 "Diferença vs vizinhas",
-                f"{delta_vizinhos:+.0f} hab./UBS",
+                f"{delta_vizinhos:+.0f} pessoas",
                 delta_color="inverse",
             )
 
@@ -2056,9 +2056,9 @@ with tab3:
     with col1:
         st.metric("UBSs analisadas", media["total_ubs"])
     with col2:
-        st.metric("Média hab./UBS", f"{media['media_habitantes_por_ubs']:,.0f}".replace(",", "."))
+        st.metric("Média por AAUBS", f"{media['media_populacao_abrangencia']:,.0f}".replace(",", "."))
     with col3:
-        st.metric("Mediana hab./UBS", f"{media['mediana_habitantes_por_ubs']:,.0f}".replace(",", "."))
+        st.metric("Mediana por AAUBS", f"{media['mediana_populacao_abrangencia']:,.0f}".replace(",", "."))
     with col4:
         st.metric("Melhor pressão", f"{media['melhor_pressao']:,.0f}".replace(",", "."))
     with col5:
@@ -2075,11 +2075,11 @@ with tab3:
         fig_top = px.bar(
             top10,
             x="ubs",
-            y="habitantes_por_ubs",
+            y="populacao_abrangencia",
             color="zona",
             color_discrete_map=CORES_ZONA,
-            title="UBSs em distritos com menor habitantes por UBS",
-            labels={"habitantes_por_ubs": "Habitantes por UBS", "ubs": "UBS", "zona": "Zona"},
+            title="UBSs com menor população em sua área de abrangência",
+            labels={"populacao_abrangencia": "Pessoas na abrangência", "ubs": "UBS", "zona": "Zona"},
         )
         aplicar_tema_plotly(fig_top, height=400)
         fig_top.update_layout(xaxis_tickangle=-45)
@@ -2087,16 +2087,16 @@ with tab3:
 
     with col_bottom:
         st.markdown("#### Maior pressão territorial")
-        bottom10 = ranking_df.tail(10).sort_values("habitantes_por_ubs", ascending=False)
+        bottom10 = ranking_df.tail(10).sort_values("populacao_abrangencia", ascending=False)
 
         fig_bottom = px.bar(
             bottom10,
             x="ubs",
-            y="habitantes_por_ubs",
+            y="populacao_abrangencia",
             color="zona",
             color_discrete_map=CORES_ZONA,
-            title="UBSs em distritos com maior habitantes por UBS",
-            labels={"habitantes_por_ubs": "Habitantes por UBS", "ubs": "UBS", "zona": "Zona"},
+            title="UBSs com maior população em sua área de abrangência",
+            labels={"populacao_abrangencia": "Pessoas na abrangência", "ubs": "UBS", "zona": "Zona"},
         )
         aplicar_tema_plotly(fig_bottom, height=400)
         fig_bottom.update_layout(xaxis_tickangle=-45)
@@ -2111,15 +2111,15 @@ with tab3:
         st.dataframe(
             df_pressao[[
                 "ubs", "bairro", "distrito", "zona", "populacao",
-                "qtd_ubs_distrito", "habitantes_por_ubs", "score",
+                "qtd_ubs_distrito", "populacao_abrangencia", "score",
             ]].rename(columns={
                 "ubs": "UBS",
                 "bairro": "Bairro",
                 "distrito": "Distrito",
                 "zona": "Zona",
-                "populacao": "População",
-                "qtd_ubs_distrito": "UBSs no Distrito",
-                "habitantes_por_ubs": "Habitantes por UBS",
+                "populacao": "População da Abrangência",
+                "qtd_ubs_distrito": "UBSs no Distrito (Contexto)",
+                "populacao_abrangencia": "Pessoas na Abrangência",
                 "score": "Índice",
             }),
             width="stretch",
@@ -2129,29 +2129,29 @@ with tab3:
         st.info("Não há UBSs com pressão territorial destacada.")
 
     st.markdown("---")
-    st.markdown("#### População vs. Pressão Territorial")
+    st.markdown("#### Distrito vs. Área de Abrangência")
 
     fig_scatter = px.scatter(
         ranking_df,
-        x="populacao",
-        y="habitantes_por_ubs",
+        x="populacao_distrito",
+        y="populacao_abrangencia",
         color="zona",
         color_discrete_map=CORES_ZONA,
-        size="qtd_ubs_distrito",
+        size="conexoes",
         hover_name="ubs",
-        title="Relação entre população do distrito e habitantes por UBS",
+        title="Contexto distrital comparado à população da AAUBS",
         labels={
-            "populacao": "População",
-            "habitantes_por_ubs": "Habitantes por UBS",
+            "populacao_distrito": "População do distrito (contexto)",
+            "populacao_abrangencia": "Pessoas na abrangência",
             "zona": "Zona",
-            "qtd_ubs_distrito": "UBSs no Distrito",
+            "conexoes": "Conexões no grafo",
         },
     )
     fig_scatter.add_hline(
-        y=media["media_habitantes_por_ubs"],
+        y=media["media_populacao_abrangencia"],
         line_dash="dash",
         line_color=ACCENT_RED,
-        annotation_text=f"Média: {media['media_habitantes_por_ubs']:.0f}",
+        annotation_text=f"Média: {media['media_populacao_abrangencia']:.0f}",
         annotation_font_color=PLOT_FONT,
     )
     aplicar_tema_plotly(fig_scatter, height=500)
@@ -2167,10 +2167,10 @@ with tab3:
         "bairro": "Bairro",
         "distrito": "Distrito",
         "zona": "Zona",
-        "populacao": "População",
-        "qtd_ubs_distrito": "UBSs no Distrito",
-        "habitantes_por_ubs": "Habitantes por UBS",
-        "ubs_por_10_mil": "UBSs por 10 mil hab.",
+        "populacao": "População da Abrangência",
+        "qtd_ubs_distrito": "UBSs no Distrito (Contexto)",
+        "populacao_abrangencia": "Pessoas na Abrangência",
+        "unidade_por_10_mil_abrangencia": "Unidades por 10 mil pessoas da AAUBS",
         "conexoes": "Conexões",
         "score": "Índice",
     })
@@ -2180,9 +2180,9 @@ with tab3:
     else:
         st.dataframe(
             ranking_display[[
-                "Posição", "UBS", "Bairro", "Distrito", "Zona", "População",
-                "UBSs no Distrito", "Habitantes por UBS",
-                "UBSs por 10 mil hab.", "Conexões", "Índice",
+                "Posição", "UBS", "Bairro", "Distrito", "Zona", "População da Abrangência",
+                "UBSs no Distrito (Contexto)", "Pessoas na Abrangência",
+                "Unidades por 10 mil pessoas da AAUBS", "Conexões", "Índice",
             ]],
             width="stretch",
             hide_index=True,
@@ -2225,8 +2225,9 @@ with tab4:
         """
         O sistema recebe um endereço, localiza esse ponto dentro do município de São Paulo
         e compara as UBSs próximas. A distância delimita o conjunto de candidatas, mas a
-        ordenação principal usa a **pressão territorial**, isto é, a população do território
-        dividida pela quantidade de UBSs disponíveis ali.
+        ordenação principal usa a **pressão territorial estimada**, isto é, a população
+        residente na área de abrangência de cada UBS. Informações públicas completas de
+        capacidade ou número de equipes não foram utilizadas no denominador.
 
         O raio começa em **6 km** e pode expandir até **12 km** quando há poucas opções
         próximas. Assim, o sistema evita indicar uma UBS muito distante sem necessidade,
@@ -2283,13 +2284,13 @@ with tab4:
 
         - **Vértices:** UBSs reais da cidade de São Paulo
         - **Arestas:** Conexões por proximidade geográfica entre UBSs
-        - **Peso dos vértices:** População de referência do território da UBS
+        - **Peso dos vértices:** População residente estimada na área de abrangência da UBS (AAUBS)
         - **Peso das arestas:** Distância estimada entre coordenadas das UBSs (km)
         - **Tipo:** Grafo não direcionado e ponderado
 
         ### Algoritmos Implementados
 
-        - **Recomendação por pressão:** UBSs próximas com menor habitantes por UBS
+        - **Recomendação por pressão:** UBSs próximas com menor população em sua AAUBS
         - **Distâncias ponderadas:** Caminhos e relações na rede de UBSs
         - **BFS:** Busca em largura para análise de alcance
         - **Centralidade de Grau:** Identificação de UBSs mais conectadas

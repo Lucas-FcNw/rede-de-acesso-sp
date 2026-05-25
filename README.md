@@ -45,9 +45,15 @@ O projeto busca identificar padrões de acessibilidade, destacar regiões mais i
 
 - **Vértices:** UBSs da cidade de São Paulo.
 - **Arestas:** conexões geográficas por proximidade entre UBSs.
-- **Peso dos vértices:** população de referência do território da UBS.
+- **Peso dos vértices:** população residente estimada na área de abrangência de cada UBS (AAUBS), associada pelo CNES.
 - **Peso das arestas:** distância estimada entre as coordenadas das UBSs.
-- **Recomendação:** dentro de um raio local, inicia em 6 km, expande até 12 km se houver poucas opções e prioriza UBSs com menor pressão territorial.
+- **Recomendação:** dentro de um raio local, inicia em 6 km, expande até 12 km se houver poucas opções e prioriza UBSs cuja área de abrangência apresenta menor população estimada.
+
+O indicador ideal de pressão também dividiria a população adscrita pela
+capacidade ou número de equipes de cada unidade. Como esses dados por UBS são
+indicados pela SMS-SP em sistemas de acesso restrito, o sistema utiliza a
+população pública da AAUBS como estimativa de demanda territorial, assumindo
+capacidade comparável entre as candidatas.
 
 Essa modelagem atende ao requisito mínimo de aproximadamente **70 vértices e 180 arestas**.
 
@@ -131,7 +137,8 @@ O foco será:
 - Portal de Dados Abertos da Prefeitura de São Paulo.
 - GeoSampa.
 - Secretaria Municipal da Saúde de São Paulo / Busca Saúde.
-- TABNET/SMS-SP, IBGE e Fundação SEADE para população intramunicipal.
+- SMS-SP/CEInfo e Censo 2022/IBGE para população estimada por Área de Abrangência de UBS (AAUBS 2025 preliminar).
+- TABNET/SMS-SP, IBGE e Fundação SEADE para dados distritais mantidos como contexto.
 
 A origem de cada arquivo mantido em `data/` está detalhada em `FONTES_DADOS.md`.
 
@@ -170,6 +177,7 @@ Arquivos mantidos na versão limpa:
 - `src/app.py`: interface Streamlit principal.
 - `src/grafo.py` e `src/metricas.py`: processamento do grafo e métricas.
 - `data/`: dados finais usados em runtime.
+- `data/populacao_aaubs_2025.json`: recorte rastreável da população de abrangência associada aos vértices por CNES.
 - `grafo.txt`: grafo com 71 vértices e 215 arestas.
 - `projeto_grafo_menu.py`: menu textual final com investigação por Dijkstra e métricas do grafo.
 - `DOCUMENTACAO_IHC.md`: documentação separada de IHC.

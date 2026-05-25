@@ -2,7 +2,7 @@
 Rede de Acesso SP - Módulo de Métricas de Cobertura Territorial
 ======================================================
 Calcula métricas de cobertura territorial em saúde baseadas
-na estrutura de grafos dos distritos de São Paulo.
+na estrutura de grafos de UBSs de São Paulo.
 
 Integrantes:
 - Lucas Fernandes de Camargo — RA 10419400
@@ -28,11 +28,16 @@ from src.grafo import GrafoSP
 
 class MetricasAcessibilidade:
     """
-    Calcula métricas de cobertura territorial para os distritos de São Paulo.
+    Calcula métricas de cobertura territorial para UBSs de São Paulo.
 
     A leitura principal do projeto é a pressão territorial:
-    quanto menor a razão habitantes por UBS, maior a chance relativa de
-    encontrar uma unidade menos pressionada dentro do recorte analisado.
+    quanto menor a população residente estimada na área de abrangência da
+    UBS, menor sua demanda potencial territorial no recorte analisado.
+
+    A formula ideal também consideraria capacidade ou número de equipes,
+    mas essa variável não está disponível publicamente de forma associável
+    às unidades do recorte. Assim, cada UBS é tratada como uma unidade de
+    capacidade comparável para fins acadêmicos.
     """
 
     def __init__(self, grafo: GrafoSP):
@@ -57,7 +62,7 @@ class MetricasAcessibilidade:
 
     @staticmethod
     def _score_por_pressao(pressao: float, menor: float, maior: float) -> float:
-        """Converte habitantes por UBS em índice 0-100 dentro do recorte analisado."""
+        """Converte população de abrangência em índice 0-100 no recorte."""
         if pressao == float("inf"):
             return 0.0
         if maior <= menor:
@@ -69,9 +74,10 @@ class MetricasAcessibilidade:
         """
         Ranking realista de cobertura para o grafo de UBSs.
 
-        A cobertura é calculada por pressão territorial:
-        habitantes do distrito / quantidade de UBSs cadastradas no distrito.
-        Quanto menor a pressão, melhor a cobertura relativa.
+        A cobertura é calculada por pressão territorial estimada:
+        população residente na área de abrangência da UBS (AAUBS).
+        Quanto menor a população atribuída à área, menor a demanda
+        potencial relativa, sob a hipótese de capacidades comparáveis.
         """
         centralidade = self.grafo.centralidade_proximidade()
         dados = []
@@ -80,13 +86,9 @@ class MetricasAcessibilidade:
             distrito_real_id = int(ubs.get("distrito_id", ubs_id))
             qtd_ubs = self._qtd_ubs_no_distrito_real(distrito_real_id)
             populacao = int(float(ubs.get("populacao", 0) or 0))
-            habitantes_por_ubs = (
-                populacao / qtd_ubs
-                if qtd_ubs > 0
-                else float("inf")
-            )
+            populacao_abrangencia = populacao if populacao > 0 else float("inf")
             cobertura_10_mil = (
-                (qtd_ubs / populacao) * 10_000
+                (1 / populacao) * 10_000
                 if populacao > 0
                 else 0.0
             )
@@ -99,60 +101,61 @@ class MetricasAcessibilidade:
                 "zona": ubs.get("zona", "N/D"),
                 "subprefeitura": ubs.get("subprefeitura", "N/D"),
                 "populacao": populacao,
+                "populacao_distrito": int(float(ubs.get("populacao_distrito", 0) or 0)),
                 "qtd_ubs_distrito": qtd_ubs,
-                "habitantes_por_ubs": habitantes_por_ubs,
-                "ubs_por_10_mil": cobertura_10_mil,
+                "populacao_abrangencia": populacao_abrangencia,
+                "unidade_por_10_mil_abrangencia": cobertura_10_mil,
                 "conexoes": self.grafo.G.degree(ubs_id),
                 "centralidade": centralidade.get(ubs_id, 0.0),
             })
 
         pressoes = [
-            item["habitantes_por_ubs"]
+            item["populacao_abrangencia"]
             for item in dados
-            if item["habitantes_por_ubs"] < float("inf")
+            if item["populacao_abrangencia"] < float("inf")
         ]
         menor = min(pressoes) if pressoes else 0.0
         maior = max(pressoes) if pressoes else 0.0
 
         for item in dados:
             item["score"] = self._score_por_pressao(
-                item["habitantes_por_ubs"],
+                item["populacao_abrangencia"],
                 menor,
                 maior,
             )
-            if item["habitantes_por_ubs"] < float("inf"):
-                item["habitantes_por_ubs"] = round(item["habitantes_por_ubs"], 1)
-            item["ubs_por_10_mil"] = round(item["ubs_por_10_mil"], 2)
+            if item["populacao_abrangencia"] < float("inf"):
+                item["populacao_abrangencia"] = round(item["populacao_abrangencia"], 1)
+            item["unidade_por_10_mil_abrangencia"] = round(item["unidade_por_10_mil_abrangencia"], 2)
             item["centralidade"] = round(item["centralidade"], 3)
 
         df = pd.DataFrame(dados)
         df = df.sort_values(
-            ["habitantes_por_ubs", "conexoes"],
+            ["populacao_abrangencia", "conexoes"],
             ascending=[True, False],
         )
         df["posicao"] = range(1, len(df) + 1)
 
         colunas = [
             "posicao", "distrito_id", "ubs", "distrito", "bairro", "zona",
-            "subprefeitura", "populacao", "qtd_ubs_distrito",
-            "habitantes_por_ubs", "ubs_por_10_mil", "conexoes",
+            "subprefeitura", "populacao", "populacao_distrito", "qtd_ubs_distrito",
+            "populacao_abrangencia", "unidade_por_10_mil_abrangencia", "conexoes",
             "centralidade", "score",
         ]
         return df[colunas].reset_index(drop=True)
 
     def resumo_cobertura_ubs(self) -> dict:
-        """Resumo estatístico da cobertura no recorte de UBSs analisado."""
+        """Resumo da população estimada das áreas de abrangência analisadas."""
         df = self.ranking_cobertura_ubs()
-        pressoes = df["habitantes_por_ubs"].astype(float)
+        pressoes = df["populacao_abrangencia"].astype(float)
 
         return {
             "total_ubs": int(len(df)),
-            "media_habitantes_por_ubs": round(float(pressoes.mean()), 1),
-            "mediana_habitantes_por_ubs": round(float(pressoes.median()), 1),
+            "media_populacao_abrangencia": round(float(pressoes.mean()), 1),
+            "mediana_populacao_abrangencia": round(float(pressoes.median()), 1),
             "melhor_pressao": round(float(pressoes.min()), 1),
             "pior_pressao": round(float(pressoes.max()), 1),
             "score_medio": round(float(df["score"].mean()), 1),
-            "media_ubs_por_10_mil": round(float(df["ubs_por_10_mil"].mean()), 2),
+            "media_unidade_por_10_mil_abrangencia": round(float(df["unidade_por_10_mil_abrangencia"].mean()), 2),
         }
 
     def analisar_ubs(self, ubs_id: int) -> dict:
@@ -161,10 +164,10 @@ class MetricasAcessibilidade:
         linha = df[df["distrito_id"] == ubs_id].iloc[0].to_dict()
         resumo = self.resumo_cobertura_ubs()
 
-        pressoes = df["habitantes_por_ubs"].astype(float)
+        pressoes = df["populacao_abrangencia"].astype(float)
         q1 = float(pressoes.quantile(0.25))
         q3 = float(pressoes.quantile(0.75))
-        pressao = float(linha["habitantes_por_ubs"])
+        pressao = float(linha["populacao_abrangencia"])
 
         if pressao <= q1:
             classificacao = "Boa cobertura"
@@ -174,13 +177,13 @@ class MetricasAcessibilidade:
             classificacao = "Cobertura intermediária"
 
         linha["diferenca_media_pressao"] = round(
-            pressao - resumo["media_habitantes_por_ubs"],
+            pressao - resumo["media_populacao_abrangencia"],
             1,
         )
         linha["classificacao"] = classificacao
         linha["total_ubs"] = resumo["total_ubs"]
-        linha["media_habitantes_por_ubs"] = resumo["media_habitantes_por_ubs"]
-        linha["mediana_habitantes_por_ubs"] = resumo["mediana_habitantes_por_ubs"]
+        linha["media_populacao_abrangencia"] = resumo["media_populacao_abrangencia"]
+        linha["mediana_populacao_abrangencia"] = resumo["mediana_populacao_abrangencia"]
         linha["score_medio"] = resumo["score_medio"]
         return linha
 
@@ -189,7 +192,7 @@ class MetricasAcessibilidade:
         df = self.ranking_cobertura_ubs()
         n = max(1, int(len(df) * (1 - percentil)))
         return (
-            df.sort_values("habitantes_por_ubs", ascending=False)
+            df.sort_values("populacao_abrangencia", ascending=False)
             .head(n)
             .to_dict("records")
         )

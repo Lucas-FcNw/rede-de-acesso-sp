@@ -4,7 +4,7 @@
 
 **Rede de Acesso SP - Saúde Territorial em São Paulo**
 
-A Rede de Acesso SP é um sistema interativo para análise territorial de UBSs na cidade de São Paulo. A interface permite consultar unidades de saúde, visualizar sua posição no mapa, comparar indicadores de pressão populacional e receber recomendações de UBSs próximas com menor chance relativa de sobrecarga.
+A Rede de Acesso SP é um sistema interativo para análise territorial de UBSs na cidade de São Paulo. A interface permite consultar unidades de saúde, visualizar sua posição no mapa, comparar a população estimada das áreas de abrangência e receber recomendações de UBSs próximas com menor demanda territorial potencial.
 
 Esta documentação descreve a aplicação dos conceitos de **Interação Humano-Computador (IHC)** no projeto, considerando usuários, tarefas, requisitos de usabilidade, princípios de design, avaliação e melhorias implementadas.
 
@@ -96,7 +96,7 @@ Encontrar uma UBS próxima com menor pressão territorial.
 - filtrar UBSs por zona ou distrito;
 - visualizar UBSs vizinhas no grafo;
 - consultar ranking de cobertura;
-- comparar indicadores de população e habitantes por UBS.
+- comparar população estimada das áreas de abrangência das UBSs.
 
 ---
 
@@ -192,7 +192,7 @@ Principais decisões tomadas com foco em IHC:
 - deixar o mapa sempre claro para melhorar leitura cartográfica;
 - priorizar busca por endereço com exemplo no campo;
 - recomendar UBSs próximas, evitando resultados muito distantes;
-- usar população do território como peso do vértice;
+- usar a população residente estimada da área de abrangência da UBS (AAUBS) como peso do vértice, com a limitação explícita de que capacidade/equipes não estão disponíveis publicamente no recorte;
 - ordenar recomendações por menor pressão territorial;
 - mostrar legenda do mapa para diferenciar endereço, UBS e rota;
 - destacar o motivo da recomendação para reduzir ambiguidade;

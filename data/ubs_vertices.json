@@ -6,14 +6,17 @@
     "zona": "Centro",
     "lat": -23.556468,
     "lon": -46.641553,
-    "populacao": 73235,
+    "populacao": 39373,
     "distrito_id": 7,
     "distrito": "Bela Vista",
     "bairro": "Bela Vista",
     "subprefeitura": "Se",
     "endereco": "HUMAITA,R,520",
     "cnes": 2787113,
-    "dist_centro_km": 1.07
+    "dist_centro_km": 1.07,
+    "populacao_distrito": 73235,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 2,
@@ -22,14 +25,17 @@
     "zona": "Centro",
     "lat": -23.569025,
     "lon": -46.622997,
-    "populacao": 40667,
+    "populacao": 79792,
     "distrito_id": 14,
     "distrito": "Cambuci",
     "bairro": "Se",
     "subprefeitura": "Se",
     "endereco": "LACERDA FRANCO,AV,791",
     "cnes": 2786834,
-    "dist_centro_km": 2.31
+    "dist_centro_km": 2.31,
+    "populacao_distrito": 40667,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 3,
@@ -38,14 +44,17 @@
     "zona": "Centro",
     "lat": -23.549916,
     "lon": -46.639666,
-    "populacao": 61832,
+    "populacao": 52057,
     "distrito_id": 67,
     "distrito": "Republica",
     "bairro": "Rep+Blica",
     "subprefeitura": "Se",
     "endereco": "BANDEIRA, PRACA DA, 15",
     "cnes": 6090621,
-    "dist_centro_km": 0.65
+    "dist_centro_km": 0.65,
+    "populacao_distrito": 61832,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 4,
@@ -54,14 +63,17 @@
     "zona": "Centro",
     "lat": -23.550525,
     "lon": -46.627859,
-    "populacao": 26693,
+    "populacao": 49150,
     "distrito_id": 80,
     "distrito": "Se",
     "bairro": "Pq Dom Pedro",
     "subprefeitura": "Se",
     "endereco": "FREDERICO ALVARENGA,R,259",
     "cnes": 5975220,
-    "dist_centro_km": 0.56
+    "dist_centro_km": 0.56,
+    "populacao_distrito": 26693,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 5,
@@ -70,14 +82,17 @@
     "zona": "Leste",
     "lat": -23.553466,
     "lon": -46.579509,
-    "populacao": 82564,
+    "populacao": 39621,
     "distrito_id": 1,
     "distrito": "Agua Rasa",
     "bairro": "Agua Rasa",
     "subprefeitura": "Mooca",
     "endereco": "SERRA DE JAIRE,R,1480",
     "cnes": 2752166,
-    "dist_centro_km": 5.49
+    "dist_centro_km": 5.49,
+    "populacao_distrito": 82564,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 6,
@@ -86,14 +101,17 @@
     "zona": "Leste",
     "lat": -23.553466,
     "lon": -46.579509,
-    "populacao": 82564,
+    "populacao": 39621,
     "distrito_id": 1,
     "distrito": "Agua Rasa",
     "bairro": "Agua Rasa",
     "subprefeitura": "Mooca",
     "endereco": "SERRA DE JAIRE,R,1480",
     "cnes": 2752166,
-    "dist_centro_km": 5.49
+    "dist_centro_km": 5.49,
+    "populacao_distrito": 82564,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 7,
@@ -102,14 +120,17 @@
     "zona": "Leste",
     "lat": -23.536554,
     "lon": -46.595127,
-    "populacao": 49213,
+    "populacao": 71964,
     "distrito_id": 8,
     "distrito": "Belem",
     "bairro": "Chacara Tatuape",
     "subprefeitura": "Mooca",
     "endereco": "CELSO GARCIA,AV,1749",
     "cnes": 2752174,
-    "dist_centro_km": 4.19
+    "dist_centro_km": 4.19,
+    "populacao_distrito": 49213,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 8,
@@ -118,14 +139,17 @@
     "zona": "Leste",
     "lat": -23.537638,
     "lon": -46.611643,
-    "populacao": 33045,
+    "populacao": 39282,
     "distrito_id": 10,
     "distrito": "Bras",
     "bairro": "Bras",
     "subprefeitura": "Mooca",
     "endereco": "SAMPSON,R,61",
     "cnes": 2752182,
-    "dist_centro_km": 2.63
+    "dist_centro_km": 2.63,
+    "populacao_distrito": 33045,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 9,
@@ -134,14 +158,17 @@
     "zona": "Leste",
     "lat": -23.513062,
     "lon": -46.531425,
-    "populacao": 138107,
+    "populacao": 16893,
     "distrito_id": 18,
     "distrito": "Cangaiba",
     "bairro": "Ch-Cara Cruzeiro Do Sul",
     "subprefeitura": "Penha",
     "endereco": "MERCEDES LOPES,R,989",
     "cnes": 6194990,
-    "dist_centro_km": 11.19
+    "dist_centro_km": 11.19,
+    "populacao_distrito": 138107,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 10,
@@ -150,14 +177,17 @@
     "zona": "Leste",
     "lat": -23.546069,
     "lon": -46.531535,
-    "populacao": 84925,
+    "populacao": 45923,
     "distrito_id": 20,
     "distrito": "Carrao",
     "bairro": "V  N. Manchester",
     "subprefeitura": "Aricanduva-Formosa-Carrao",
     "endereco": "HAROLDO DALTRO,PCA,461",
     "cnes": 2752360,
-    "dist_centro_km": 10.39
+    "dist_centro_km": 10.39,
+    "populacao_distrito": 84925,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 11,
@@ -166,14 +196,17 @@
     "zona": "Leste",
     "lat": -23.550412,
     "lon": -46.597303,
-    "populacao": 80330,
+    "populacao": 53332,
     "distrito_id": 54,
     "distrito": "Mooca",
     "bairro": "Mooca",
     "subprefeitura": "Mooca",
     "endereco": "TAQUARI,R,549",
     "cnes": 2042258,
-    "dist_centro_km": 3.67
+    "dist_centro_km": 3.67,
+    "populacao_distrito": 80330,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 12,
@@ -182,14 +215,17 @@
     "zona": "Leste",
     "lat": -23.525505,
     "lon": -46.620487,
-    "populacao": 19069,
+    "populacao": 18498,
     "distrito_id": 57,
     "distrito": "Pari",
     "bairro": "Caninde",
     "subprefeitura": "Mooca",
     "endereco": "OLARIAS,DAS,R,503",
     "cnes": 2788195,
-    "dist_centro_km": 3.07
+    "dist_centro_km": 3.07,
+    "populacao_distrito": 19069,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 13,
@@ -198,14 +234,17 @@
     "zona": "Leste",
     "lat": -23.510474,
     "lon": -46.550313,
-    "populacao": 129100,
+    "populacao": 31547,
     "distrito_id": 60,
     "distrito": "Penha",
     "bairro": "Eng Trindade",
     "subprefeitura": "Penha",
     "endereco": "GABRIELA MISTRAL,AV,1168",
     "cnes": 2787032,
-    "dist_centro_km": 9.56
+    "dist_centro_km": 9.56,
+    "populacao_distrito": 129100,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 14,
@@ -214,14 +253,17 @@
     "zona": "Leste",
     "lat": -23.588139,
     "lon": -46.559831,
-    "populacao": 142948,
+    "populacao": 23847,
     "distrito_id": 74,
     "distrito": "Sao Lucas",
     "bairro": "Jd. Independencia",
     "subprefeitura": "Vila Prudente",
     "endereco": "PLANALTO DA CONQUISTA,R,80",
     "cnes": 2752239,
-    "dist_centro_km": 8.58
+    "dist_centro_km": 8.58,
+    "populacao_distrito": 142948,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 15,
@@ -230,14 +272,17 @@
     "zona": "Leste",
     "lat": -23.548776,
     "lon": -46.560548,
-    "populacao": 96045,
+    "populacao": 67803,
     "distrito_id": 82,
     "distrito": "Tatuape",
     "bairro": "V Gomes Cardim",
     "subprefeitura": "Mooca",
     "endereco": "ANTONIO CAMARDO, R,678",
     "cnes": 2752387,
-    "dist_centro_km": 7.42
+    "dist_centro_km": 7.42,
+    "populacao_distrito": 96045,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 16,
@@ -246,14 +291,17 @@
     "zona": "Leste",
     "lat": -23.560875,
     "lon": -46.552514,
-    "populacao": 94100,
+    "populacao": 40295,
     "distrito_id": 87,
     "distrito": "Vila Formosa",
     "bairro": "V  Formosa",
     "subprefeitura": "Aricanduva-Formosa-Carrao",
     "endereco": "ACURUI,R,720",
     "cnes": 2788918,
-    "dist_centro_km": 8.32
+    "dist_centro_km": 8.32,
+    "populacao_distrito": 94100,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 17,
@@ -262,14 +310,17 @@
     "zona": "Leste",
     "lat": -23.534317,
     "lon": -46.536027,
-    "populacao": 105575,
+    "populacao": 16905,
     "distrito_id": 93,
     "distrito": "Vila Matilde",
     "bairro": "V Aricanduva",
     "subprefeitura": "Penha",
     "endereco": "ANTONIO LIDORIO DA SILVA,R,265",
     "cnes": 2788721,
-    "dist_centro_km": 10.08
+    "dist_centro_km": 10.08,
+    "populacao_distrito": 105575,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 18,
@@ -278,14 +329,17 @@
     "zona": "Leste",
     "lat": -23.595959,
     "lon": -46.567139,
-    "populacao": 104686,
+    "populacao": 27999,
     "distrito_id": 95,
     "distrito": "Vila Prudente",
     "bairro": "V Alpina",
     "subprefeitura": "Vila Prudente",
     "endereco": "PARAMU,R,398",
     "cnes": 2045451,
-    "dist_centro_km": 8.43
+    "dist_centro_km": 8.43,
+    "populacao_distrito": 104686,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 19,
@@ -294,14 +348,17 @@
     "zona": "Leste",
     "lat": -23.581804,
     "lon": -46.582361,
-    "populacao": 104686,
+    "populacao": 46729,
     "distrito_id": 95,
     "distrito": "Vila Prudente",
     "bairro": "V  Prudente",
     "subprefeitura": "Vila Prudente",
     "endereco": "CENTENARIO DE V PRUDENTE,PCA,108",
     "cnes": 3359131,
-    "dist_centro_km": 6.25
+    "dist_centro_km": 6.25,
+    "populacao_distrito": 104686,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 20,
@@ -310,14 +367,17 @@
     "zona": "Norte",
     "lat": -23.469869,
     "lon": -46.673488,
-    "populacao": 281977,
+    "populacao": 21070,
     "distrito_id": 11,
     "distrito": "Brasilandia",
     "bairro": "V Rica",
     "subprefeitura": "Freguesia-Brasilandia",
     "endereco": "JOAQUINA MARIA SANTOS,R,198",
     "cnes": 2786761,
-    "dist_centro_km": 9.86
+    "dist_centro_km": 9.86,
+    "populacao_distrito": 281977,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 21,
@@ -326,14 +386,17 @@
     "zona": "Norte",
     "lat": -23.472919,
     "lon": -46.684432,
-    "populacao": 281977,
+    "populacao": 26421,
     "distrito_id": 11,
     "distrito": "Brasilandia",
     "bairro": "Brasilandia",
     "subprefeitura": "Freguesia-Brasilandia",
     "endereco": "RUI DE MORAIS APOCALIPSE,R,2",
     "cnes": 2788071,
-    "dist_centro_km": 10.08
+    "dist_centro_km": 10.08,
+    "populacao_distrito": 281977,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 22,
@@ -342,14 +405,17 @@
     "zona": "Norte",
     "lat": -23.476153,
     "lon": -46.658644,
-    "populacao": 146387,
+    "populacao": 25546,
     "distrito_id": 13,
     "distrito": "Cachoeirinha",
     "bairro": "V Nova Cachoeirinha",
     "subprefeitura": "Casa Verde-Cachoeirinha",
     "endereco": "WALFRIDO DE CARVALHO,CEL,R,S/N",
     "cnes": 2787148,
-    "dist_centro_km": 8.66
+    "dist_centro_km": 8.66,
+    "populacao_distrito": 146387,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 23,
@@ -358,14 +424,17 @@
     "zona": "Norte",
     "lat": -23.480948,
     "lon": -46.667451,
-    "populacao": 146387,
+    "populacao": 15270,
     "distrito_id": 13,
     "distrito": "Cachoeirinha",
     "bairro": "V Espanhola",
     "subprefeitura": "Casa Verde-Cachoeirinha",
     "endereco": "JOAO DOS STOS ABREU,AV, 650",
     "cnes": 2788853,
-    "dist_centro_km": 8.48
+    "dist_centro_km": 8.48,
+    "populacao_distrito": 146387,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 24,
@@ -374,14 +443,17 @@
     "zona": "Norte",
     "lat": -23.504022,
     "lon": -46.659503,
-    "populacao": 86004,
+    "populacao": 20218,
     "distrito_id": 21,
     "distrito": "Casa Verde",
     "bairro": "Casa Verde Baixa",
     "subprefeitura": "Casa Verde-Cachoeirinha",
     "endereco": "VICHY,R,468",
     "cnes": 2027682,
-    "dist_centro_km": 5.82
+    "dist_centro_km": 5.82,
+    "populacao_distrito": 86004,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 25,
@@ -390,14 +462,17 @@
     "zona": "Norte",
     "lat": -23.508741,
     "lon": -46.663549,
-    "populacao": 86004,
+    "populacao": 8919,
     "distrito_id": 21,
     "distrito": "Casa Verde",
     "bairro": "Casa Verde",
     "subprefeitura": "Casa Verde-Cachoeirinha",
     "endereco": "MOURAO VIEIRA,R,11",
     "cnes": 2091712,
-    "dist_centro_km": 5.58
+    "dist_centro_km": 5.58,
+    "populacao_distrito": 86004,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 26,
@@ -406,14 +481,17 @@
     "zona": "Norte",
     "lat": -23.494362,
     "lon": -46.684871,
-    "populacao": 140083,
+    "populacao": 17391,
     "distrito_id": 29,
     "distrito": "Freguesia Do O",
     "bairro": "V Palmeira",
     "subprefeitura": "Freguesia-Brasilandia",
     "endereco": "FRANCISCO LOTUFO,R,24",
     "cnes": 2789140,
-    "dist_centro_km": 8.16
+    "dist_centro_km": 8.16,
+    "populacao_distrito": 140083,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 27,
@@ -422,14 +500,17 @@
     "zona": "Norte",
     "lat": -23.48197,
     "lon": -46.677598,
-    "populacao": 140083,
+    "populacao": 16808,
     "distrito_id": 29,
     "distrito": "Freguesia Do O",
     "bairro": "Freguesia Do O",
     "subprefeitura": "Freguesia-Brasilandia",
     "endereco": "VICENTE JORGE,R,80",
     "cnes": 2027062,
-    "dist_centro_km": 8.86
+    "dist_centro_km": 8.86,
+    "populacao_distrito": 140083,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 28,
@@ -438,14 +519,17 @@
     "zona": "Norte",
     "lat": -23.47431,
     "lon": -46.580114,
-    "populacao": 96054,
+    "populacao": 21600,
     "distrito_id": 38,
     "distrito": "Jacana",
     "bairro": "V Constanca",
     "subprefeitura": "Jacana-Tremembe",
     "endereco": "SAO GERALDINO,R,222",
     "cnes": 2787962,
-    "dist_centro_km": 10.06
+    "dist_centro_km": 10.06,
+    "populacao_distrito": 96054,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 29,
@@ -454,14 +538,17 @@
     "zona": "Norte",
     "lat": -23.476599,
     "lon": -46.568585,
-    "populacao": 96054,
+    "populacao": 25581,
     "distrito_id": 38,
     "distrito": "Jacana",
     "bairro": "Pq Edu Chaves",
     "subprefeitura": "Jacana-Tremembe",
     "endereco": "EDU CHAVES,AV,1197",
     "cnes": 2788306,
-    "dist_centro_km": 10.54
+    "dist_centro_km": 10.54,
+    "populacao_distrito": 96054,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 30,
@@ -470,14 +557,17 @@
     "zona": "Norte",
     "lat": -23.497724,
     "lon": -46.677204,
-    "populacao": 79657,
+    "populacao": 26552,
     "distrito_id": 50,
     "distrito": "Limao",
     "bairro": "Limao",
     "subprefeitura": "Casa Verde-Cachoeirinha",
     "endereco": "CLAVASIO ALVES DA SILVA,AV,683",
     "cnes": 2786710,
-    "dist_centro_km": 7.38
+    "dist_centro_km": 7.38,
+    "populacao_distrito": 79657,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 31,
@@ -486,14 +576,17 @@
     "zona": "Norte",
     "lat": -23.504804,
     "lon": -46.670111,
-    "populacao": 79657,
+    "populacao": 21907,
     "distrito_id": 50,
     "distrito": "Limao",
     "bairro": "Limao",
     "subprefeitura": "Casa Verde-Cachoeirinha",
     "endereco": "MANDAQUI,AV,197",
     "cnes": 2788756,
-    "dist_centro_km": 6.32
+    "dist_centro_km": 6.32,
+    "populacao_distrito": 79657,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 32,
@@ -502,14 +595,17 @@
     "zona": "Norte",
     "lat": -23.475452,
     "lon": -46.629994,
-    "populacao": 109228,
+    "populacao": 24060,
     "distrito_id": 51,
     "distrito": "Mandaqui",
     "bairro": "Alto Do Mandaqui",
     "subprefeitura": "Santana-Tucuruvi",
     "endereco": "JEAN BUFF,ENG,R,126",
     "cnes": 2752212,
-    "dist_centro_km": 8.35
+    "dist_centro_km": 8.35,
+    "populacao_distrito": 109228,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 33,
@@ -518,14 +614,17 @@
     "zona": "Norte",
     "lat": -23.474762,
     "lon": -46.64134,
-    "populacao": 109228,
+    "populacao": 61954,
     "distrito_id": 51,
     "distrito": "Mandaqui",
     "bairro": "Lauzane Pta",
     "subprefeitura": "Santana-Tucuruvi",
     "endereco": "VALORBE,R,80",
     "cnes": 2788047,
-    "dist_centro_km": 8.46
+    "dist_centro_km": 8.46,
+    "populacao_distrito": 109228,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 34,
@@ -534,14 +633,17 @@
     "zona": "Norte",
     "lat": -23.49442,
     "lon": -46.712506,
-    "populacao": 171232,
+    "populacao": 18161,
     "distrito_id": 64,
     "distrito": "Pirituba",
     "bairro": "Pirituba",
     "subprefeitura": "Pirituba",
     "endereco": "DOMINGOS COELHO,PCA,5",
     "cnes": 2788136,
-    "dist_centro_km": 10.2
+    "dist_centro_km": 10.2,
+    "populacao_distrito": 171232,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 35,
@@ -550,14 +652,17 @@
     "zona": "Norte",
     "lat": -23.487266,
     "lon": -46.713005,
-    "populacao": 171232,
+    "populacao": 18075,
     "distrito_id": 64,
     "distrito": "Pirituba",
     "bairro": "Jd. Sao Jose",
     "subprefeitura": "Pirituba",
     "endereco": "MANUEL D'ELBOUX,D,R,76",
     "cnes": 2789167,
-    "dist_centro_km": 10.75
+    "dist_centro_km": 10.75,
+    "populacao_distrito": 171232,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 36,
@@ -566,14 +671,17 @@
     "zona": "Norte",
     "lat": -23.49395,
     "lon": -46.637221,
-    "populacao": 113253,
+    "populacao": 61634,
     "distrito_id": 71,
     "distrito": "Santana",
     "bairro": "Santa Terezinha",
     "subprefeitura": "Santana-Tucuruvi",
     "endereco": "COPACABANA,R,185",
     "cnes": 2027666,
-    "dist_centro_km": 6.3
+    "dist_centro_km": 6.3,
+    "populacao_distrito": 113253,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 37,
@@ -582,14 +690,17 @@
     "zona": "Norte",
     "lat": -23.502852,
     "lon": -46.631123,
-    "populacao": 113253,
+    "populacao": 54118,
     "distrito_id": 71,
     "distrito": "Santana",
     "bairro": "Santana",
     "subprefeitura": "Santana-Tucuruvi",
     "endereco": "BRAS LEME,AV,2945",
     "cnes": 2027631,
-    "dist_centro_km": 5.31
+    "dist_centro_km": 5.31,
+    "populacao_distrito": 113253,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 38,
@@ -598,14 +709,17 @@
     "zona": "Norte",
     "lat": -23.462448,
     "lon": -46.623105,
-    "populacao": 223553,
+    "populacao": 25432,
     "distrito_id": 83,
     "distrito": "Tremembe",
     "bairro": "Tremembe",
     "subprefeitura": "Jacana-Tremembe",
     "endereco": "JOSE VICENTE,DR,R,39",
     "cnes": 2027690,
-    "dist_centro_km": 9.85
+    "dist_centro_km": 9.85,
+    "populacao_distrito": 223553,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 39,
@@ -614,14 +728,17 @@
     "zona": "Norte",
     "lat": -23.448621,
     "lon": -46.609796,
-    "populacao": 223553,
+    "populacao": 23405,
     "distrito_id": 83,
     "distrito": "Tremembe",
     "bairro": "V Albertina",
     "subprefeitura": "Jacana-Tremembe",
     "endereco": "ANTONIO JOAQUIM DE OLIVEIRA, R,220",
     "cnes": 2027275,
-    "dist_centro_km": 11.58
+    "dist_centro_km": 11.58,
+    "populacao_distrito": 223553,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 40,
@@ -630,14 +747,17 @@
     "zona": "Norte",
     "lat": -23.47729,
     "lon": -46.587692,
-    "populacao": 96358,
+    "populacao": 42715,
     "distrito_id": 84,
     "distrito": "Tucuruvi",
     "bairro": "V  Nivi",
     "subprefeitura": "Santana-Tucuruvi",
     "endereco": "CAMPINOPOLIS,PCA,125",
     "cnes": 2027674,
-    "dist_centro_km": 9.38
+    "dist_centro_km": 9.38,
+    "populacao_distrito": 96358,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 41,
@@ -646,14 +766,17 @@
     "zona": "Norte",
     "lat": -23.468318,
     "lon": -46.60283,
-    "populacao": 96358,
+    "populacao": 40501,
     "distrito_id": 84,
     "distrito": "Tucuruvi",
     "bairro": "Tremembe",
     "subprefeitura": "Santana-Tucuruvi",
     "endereco": "PAULO CESAR,R,60",
     "cnes": 4049985,
-    "dist_centro_km": 9.65
+    "dist_centro_km": 9.65,
+    "populacao_distrito": 96358,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 42,
@@ -662,14 +785,17 @@
     "zona": "Norte",
     "lat": -23.503837,
     "lon": -46.610494,
-    "populacao": 57079,
+    "populacao": 13226,
     "distrito_id": 88,
     "distrito": "Vila Guilherme",
     "bairro": "Carandiru",
     "subprefeitura": "Vila Maria-Vila Guilherme",
     "endereco": "JOSE PEREIRA JORGE,R,305",
     "cnes": 2068079,
-    "dist_centro_km": 5.69
+    "dist_centro_km": 5.69,
+    "populacao_distrito": 57079,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 43,
@@ -678,14 +804,17 @@
     "zona": "Norte",
     "lat": -23.515717,
     "lon": -46.605055,
-    "populacao": 57079,
+    "populacao": 19759,
     "distrito_id": 88,
     "distrito": "Vila Guilherme",
     "bairro": "V Guilherme",
     "subprefeitura": "Vila Maria-Vila Guilherme",
     "endereco": "JOAO VENTURA BATISTA,R,615",
     "cnes": 2788950,
-    "dist_centro_km": 4.82
+    "dist_centro_km": 4.82,
+    "populacao_distrito": 57079,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 44,
@@ -694,14 +823,17 @@
     "zona": "Norte",
     "lat": -23.505151,
     "lon": -46.588562,
-    "populacao": 114025,
+    "populacao": 28342,
     "distrito_id": 91,
     "distrito": "Vila Maria",
     "bairro": "V Maria Alta",
     "subprefeitura": "Vila Maria-Vila Guilherme",
     "endereco": "SOBRAL JUNIOR,R,452",
     "cnes": 2787504,
-    "dist_centro_km": 6.8
+    "dist_centro_km": 6.8,
+    "populacao_distrito": 114025,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 45,
@@ -710,14 +842,17 @@
     "zona": "Norte",
     "lat": -23.517069,
     "lon": -46.576342,
-    "populacao": 114025,
+    "populacao": 28277,
     "distrito_id": 91,
     "distrito": "Vila Maria",
     "bairro": "Pq. Novo Mundo",
     "subprefeitura": "Vila Maria-Vila Guilherme",
     "endereco": "BENEDITA DORNELLAS CLARO,R,451",
     "cnes": 2788349,
-    "dist_centro_km": 6.9
+    "dist_centro_km": 6.9,
+    "populacao_distrito": 114025,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 46,
@@ -726,14 +861,17 @@
     "zona": "Norte",
     "lat": -23.490425,
     "lon": -46.59092,
-    "populacao": 123456,
+    "populacao": 19586,
     "distrito_id": 94,
     "distrito": "Vila Medeiros",
     "bairro": "V Ede",
     "subprefeitura": "Vila Maria-Vila Guilherme",
     "endereco": "MARCOS SIMIONE,PE,R,390",
     "cnes": 2788845,
-    "dist_centro_km": 7.96
+    "dist_centro_km": 7.96,
+    "populacao_distrito": 123456,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 47,
@@ -742,14 +880,17 @@
     "zona": "Norte",
     "lat": -23.491895,
     "lon": -46.584769,
-    "populacao": 123456,
+    "populacao": 22204,
     "distrito_id": 94,
     "distrito": "Vila Medeiros",
     "bairro": "V Medeiros",
     "subprefeitura": "Vila Maria-Vila Guilherme",
     "endereco": "EURICO SODRE,R,353",
     "cnes": 2789051,
-    "dist_centro_km": 8.18
+    "dist_centro_km": 8.18,
+    "populacao_distrito": 123456,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 48,
@@ -758,14 +899,17 @@
     "zona": "Oeste",
     "lat": -23.537043,
     "lon": -46.722018,
-    "populacao": 40962,
+    "populacao": 35186,
     "distrito_id": 2,
     "distrito": "Alto De Pinheiros",
     "bairro": "Alto De Pinheiros",
     "subprefeitura": "Pinheiros",
     "endereco": "QUEIROS FILHO,313",
     "cnes": 3503488,
-    "dist_centro_km": 9.17
+    "dist_centro_km": 9.17,
+    "populacao_distrito": 40962,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 49,
@@ -774,14 +918,17 @@
     "zona": "Oeste",
     "lat": -23.57863,
     "lon": -46.714514,
-    "populacao": 53836,
+    "populacao": 29494,
     "distrito_id": 12,
     "distrito": "Butanta",
     "bairro": "Butanta",
     "subprefeitura": "Butanta",
     "endereco": "LADISLAU ROMAN,R,410",
     "cnes": 2786877,
-    "dist_centro_km": 8.85
+    "dist_centro_km": 8.85,
+    "populacao_distrito": 53836,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 50,
@@ -790,14 +937,17 @@
     "zona": "Oeste",
     "lat": -23.587193,
     "lon": -46.684651,
-    "populacao": 97229,
+    "populacao": 58720,
     "distrito_id": 34,
     "distrito": "Itaim Bibi",
     "bairro": "Itaim Bibi",
     "subprefeitura": "Pinheiros",
     "endereco": "SALVADOR CARDOSO,R,177",
     "cnes": 2752301,
-    "dist_centro_km": 6.63
+    "dist_centro_km": 6.63,
+    "populacao_distrito": 97229,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 51,
@@ -806,14 +956,17 @@
     "zona": "Oeste",
     "lat": -23.54242,
     "lon": -46.74426,
-    "populacao": 55192,
+    "populacao": 35406,
     "distrito_id": 40,
     "distrito": "Jaguare",
     "bairro": "Jaguare",
     "subprefeitura": "Lapa",
     "endereco": "SALATIEL DE CAMPOS,R,222",
     "cnes": 2789116,
-    "dist_centro_km": 11.35
+    "dist_centro_km": 11.35,
+    "populacao_distrito": 55192,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 52,
@@ -822,14 +975,17 @@
     "zona": "Oeste",
     "lat": -23.528052,
     "lon": -46.694718,
-    "populacao": 67170,
+    "populacao": 42383,
     "distrito_id": 48,
     "distrito": "Lapa",
     "bairro": "Vila Romana",
     "subprefeitura": "Lapa",
     "endereco": "VESPASIANO,R, 679",
     "cnes": 2789248,
-    "dist_centro_km": 6.74
+    "dist_centro_km": 6.74,
+    "populacao_distrito": 67170,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 53,
@@ -838,14 +994,17 @@
     "zona": "Oeste",
     "lat": -23.609426,
     "lon": -46.705295,
-    "populacao": 52921,
+    "populacao": 24580,
     "distrito_id": 55,
     "distrito": "Morumbi",
     "bairro": "Real Parque",
     "subprefeitura": "Butanta",
-    "endereco": "MELGA´?¢O, BR,DE,R,339",
+    "endereco": "MELGA\u00b4?\u00a2O, BR,DE,R,339",
     "cnes": 2788470,
-    "dist_centro_km": 9.83
+    "dist_centro_km": 9.83,
+    "populacao_distrito": 52921,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 54,
@@ -854,14 +1013,17 @@
     "zona": "Oeste",
     "lat": -23.528532,
     "lon": -46.678803,
-    "populacao": 114788,
+    "populacao": 61440,
     "distrito_id": 61,
     "distrito": "Perdizes",
     "bairro": "Pq. Antartica",
     "subprefeitura": "Lapa",
     "endereco": "TURIASSU,R,1765",
     "cnes": 2788683,
-    "dist_centro_km": 5.24
+    "dist_centro_km": 5.24,
+    "populacao_distrito": 114788,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 55,
@@ -870,14 +1032,17 @@
     "zona": "Oeste",
     "lat": -23.553241,
     "lon": -46.690743,
-    "populacao": 65909,
+    "populacao": 54372,
     "distrito_id": 63,
     "distrito": "Pinheiros",
     "bairro": "V  Madalena",
     "subprefeitura": "Pinheiros",
     "endereco": "PURPURINA,R,280",
     "cnes": 2788063,
-    "dist_centro_km": 5.86
+    "dist_centro_km": 5.86,
+    "populacao_distrito": 65909,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 56,
@@ -886,14 +1051,17 @@
     "zona": "Oeste",
     "lat": -23.531253,
     "lon": -46.720086,
-    "populacao": 45092,
+    "populacao": 47935,
     "distrito_id": 90,
     "distrito": "Vila Leopoldina",
     "bairro": "Pq Da Lapa",
     "subprefeitura": "Lapa",
     "endereco": "BERGSON,R, 52",
     "cnes": 2027461,
-    "dist_centro_km": 9.1
+    "dist_centro_km": 9.1,
+    "populacao_distrito": 45092,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 57,
@@ -902,14 +1070,17 @@
     "zona": "Sul",
     "lat": -23.631377,
     "lon": -46.669143,
-    "populacao": 63744,
+    "populacao": 69897,
     "distrito_id": 15,
     "distrito": "Campo Belo",
     "bairro": "Jd Aeroporto",
     "subprefeitura": "Santo Amaro",
     "endereco": "VIAZA,R,100",
     "cnes": 2787156,
-    "dist_centro_km": 9.7
+    "dist_centro_km": 9.7,
+    "populacao_distrito": 63744,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 58,
@@ -918,14 +1089,17 @@
     "zona": "Sul",
     "lat": -23.61216,
     "lon": -46.615556,
-    "populacao": 113728,
+    "populacao": 31075,
     "distrito_id": 27,
     "distrito": "Cursino",
     "bairro": "Jd. Da Saude",
     "subprefeitura": "Ipiranga",
     "endereco": "DOMINGOS DE ROGATIS,R,187",
     "cnes": 2042967,
-    "dist_centro_km": 7.09
+    "dist_centro_km": 7.09,
+    "populacao_distrito": 113728,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 59,
@@ -934,14 +1108,17 @@
     "zona": "Sul",
     "lat": -23.603332,
     "lon": -46.623059,
-    "populacao": 113728,
+    "populacao": 31233,
     "distrito_id": 27,
     "distrito": "Cursino",
     "bairro": "V Gumercindo",
     "subprefeitura": "Ipiranga",
     "endereco": "LUCIO DE SOUSA,D,R,372",
     "cnes": 2787598,
-    "dist_centro_km": 5.96
+    "dist_centro_km": 5.96,
+    "populacao_distrito": 113728,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 60,
@@ -950,14 +1127,17 @@
     "zona": "Sul",
     "lat": -23.570025,
     "lon": -46.610979,
-    "populacao": 112222,
+    "populacao": 28873,
     "distrito_id": 33,
     "distrito": "Ipiranga",
     "bairro": "V  Monumento",
     "subprefeitura": "Ipiranga",
     "endereco": "D PEDRO I,AV,594",
     "cnes": 2042975,
-    "dist_centro_km": 3.14
+    "dist_centro_km": 3.14,
+    "populacao_distrito": 112222,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 61,
@@ -966,14 +1146,17 @@
     "zona": "Sul",
     "lat": -23.590488,
     "lon": -46.608586,
-    "populacao": 112222,
+    "populacao": 33287,
     "distrito_id": 33,
     "distrito": "Ipiranga",
     "bairro": "Ipiranga",
     "subprefeitura": "Ipiranga",
     "endereco": "VICENTE DA COSTA,R,289",
     "cnes": 2788543,
-    "dist_centro_km": 5.11
+    "dist_centro_km": 5.11,
+    "populacao_distrito": 112222,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 62,
@@ -982,14 +1165,17 @@
     "zona": "Sul",
     "lat": -23.64743,
     "lon": -46.637988,
-    "populacao": 229346,
+    "populacao": 34294,
     "distrito_id": 37,
     "distrito": "Jabaquara",
     "bairro": "Cid Vargas",
     "subprefeitura": "Jabaquara",
     "endereco": "COMERCIARIOS,DOS,R,236",
     "cnes": 2030934,
-    "dist_centro_km": 10.79
+    "dist_centro_km": 10.79,
+    "populacao_distrito": 229346,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 63,
@@ -998,14 +1184,17 @@
     "zona": "Sul",
     "lat": -23.647305,
     "lon": -46.661834,
-    "populacao": 229346,
+    "populacao": 23987,
     "distrito_id": 37,
     "distrito": "Jabaquara",
     "bairro": "V Sta Catarina",
     "subprefeitura": "Jabaquara",
     "endereco": "SANTA CATARINA,AV,1523",
     "cnes": 2786966,
-    "dist_centro_km": 11.15
+    "dist_centro_km": 11.15,
+    "populacao_distrito": 229346,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 64,
@@ -1014,14 +1203,17 @@
     "zona": "Sul",
     "lat": -23.591938,
     "lon": -46.670704,
-    "populacao": 89382,
+    "populacao": 34224,
     "distrito_id": 53,
     "distrito": "Moema",
     "bairro": "V Nova Conceicao",
     "subprefeitura": "Vila Mariana",
     "endereco": "JACQUES FELIX,R,499",
     "cnes": 2789132,
-    "dist_centro_km": 5.98
+    "dist_centro_km": 5.98,
+    "populacao_distrito": 89382,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 65,
@@ -1030,14 +1222,17 @@
     "zona": "Sul",
     "lat": -23.603931,
     "lon": -46.653925,
-    "populacao": 89382,
+    "populacao": 47785,
     "distrito_id": 53,
     "distrito": "Moema",
     "bairro": "Moema",
     "subprefeitura": "Vila Mariana",
     "endereco": "INDIANOPOLIS,AV,650",
     "cnes": 2788578,
-    "dist_centro_km": 6.3
+    "dist_centro_km": 6.3,
+    "populacao_distrito": 89382,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 66,
@@ -1046,14 +1241,17 @@
     "zona": "Sul",
     "lat": -23.611558,
     "lon": -46.60514,
-    "populacao": 263621,
+    "populacao": 19800,
     "distrito_id": 69,
     "distrito": "Sacoma",
     "bairro": "Moinho Velho",
     "subprefeitura": "Ipiranga",
     "endereco": "BELGRADO,R,513",
     "cnes": 2788128,
-    "dist_centro_km": 7.37
+    "dist_centro_km": 7.37,
+    "populacao_distrito": 263621,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 67,
@@ -1062,14 +1260,17 @@
     "zona": "Sul",
     "lat": -23.61334,
     "lon": -46.593417,
-    "populacao": 263621,
+    "populacao": 50983,
     "distrito_id": 69,
     "distrito": "Sacoma",
     "bairro": "V Heliopolis",
     "subprefeitura": "Ipiranga",
     "endereco": "ESTRADA DAS LAGRIMAS,1403",
     "cnes": 2788519,
-    "dist_centro_km": 8.08
+    "dist_centro_km": 8.08,
+    "populacao_distrito": 263621,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 68,
@@ -1078,14 +1279,17 @@
     "zona": "Sul",
     "lat": -23.634912,
     "lon": -46.698655,
-    "populacao": 74447,
+    "populacao": 46086,
     "distrito_id": 72,
     "distrito": "Santo Amaro",
     "bairro": "Chacara Sto Antonio",
     "subprefeitura": "Santo Amaro",
     "endereco": "ALEXANDRE DUMAS,R,719",
     "cnes": 2765993,
-    "dist_centro_km": 11.51
+    "dist_centro_km": 11.51,
+    "populacao_distrito": 74447,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 69,
@@ -1094,14 +1298,17 @@
     "zona": "Sul",
     "lat": -23.628304,
     "lon": -46.645847,
-    "populacao": 134147,
+    "populacao": 40861,
     "distrito_id": 79,
     "distrito": "Saude",
     "bairro": "Planalto Paulista",
     "subprefeitura": "Vila Mariana",
     "endereco": "CECI,AV, 2249",
     "cnes": 2788101,
-    "dist_centro_km": 8.74
+    "dist_centro_km": 8.74,
+    "populacao_distrito": 134147,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 70,
@@ -1110,14 +1317,17 @@
     "zona": "Sul",
     "lat": -23.627897,
     "lon": -46.639529,
-    "populacao": 134147,
+    "populacao": 64973,
     "distrito_id": 79,
     "distrito": "Saude",
     "bairro": "V Monte Alegre",
     "subprefeitura": "Vila Mariana",
     "endereco": "JACOPO BASSANO,R,27",
     "cnes": 2788330,
-    "dist_centro_km": 8.63
+    "dist_centro_km": 8.63,
+    "populacao_distrito": 134147,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   },
   {
     "id": 71,
@@ -1126,13 +1336,16 @@
     "zona": "Sul",
     "lat": -23.617574,
     "lon": -46.718678,
-    "populacao": 163508,
+    "populacao": 42688,
     "distrito_id": 85,
     "distrito": "Vila Andrade",
     "bairro": "Vila Andrade",
     "subprefeitura": "Campo Limpo",
     "endereco": "SILVEIRA SAMPAIO,R,660",
     "cnes": 6564410,
-    "dist_centro_km": 11.46
+    "dist_centro_km": 11.46,
+    "populacao_distrito": 163508,
+    "populacao_tipo": "area_abrangencia_ubs",
+    "populacao_fonte": "Censo 2022 / SMS-SP-CEInfo - AAUBS 2025 preliminar (V001AAUBS)"
   }
 ]

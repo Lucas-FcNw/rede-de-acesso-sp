@@ -6,7 +6,8 @@ Este arquivo documenta a origem dos dados usados na entrega da Rede de Acesso SP
 
 | Arquivo | Conteudo | Fonte/origem |
 | --- | --- | --- |
-| `data/ubs_vertices.json` | UBSs usadas como vertices do grafo, com nome, endereco, CNES, distrito, coordenadas e populacao de referencia. | Derivado da base de equipamentos/servicos de saude da Prefeitura de Sao Paulo/SMS e complementado com populacao por distrito. |
+| `data/ubs_vertices.json` | UBSs usadas como vertices do grafo, com nome, endereco, CNES, distrito, coordenadas, populacao da AAUBS e populacao distrital preservada como contexto. | Equipamentos/servicos da SMS-SP; peso populacional associado por CNES a planilha AAUBS 2025 preliminar, CEInfo/SMS-SP e Censo 2022/IBGE. |
+| `data/populacao_aaubs_2025.json` | Recorte tratado com os 71 vinculos CNES e a populacao estimada da area de abrangencia usada no peso dos vertices. | Derivado da planilha oficial AAUBS 2025 preliminar, variavel `V001AAUBS - Total de pessoas`. |
 | `data/servicos.json` | Rede de servicos de saude usada como apoio contextual, incluindo hospitais SUS, UBSs e outros equipamentos. | Prefeitura de Sao Paulo/SMS, consulta de servicos de saude e Busca Saude. |
 | `data/distritos.json` | Distritos administrativos, zona, centroide aproximado e populacao. | TABNET/SMS-SP para populacao intramunicipal e GeoSampa para divisao territorial. |
 | `data/adjacencias.json` | Arestas/conexoes entre UBSs proximas e distancia aproximada em quilometros. | Gerado pelo projeto a partir das coordenadas das UBSs selecionadas. |
@@ -24,6 +25,12 @@ Este arquivo documenta a origem dos dados usados na entrega da Rede de Acesso SP
 - Prefeitura de Sao Paulo - Areas de Abrangencia das UBSs  
   https://prefeitura.sp.gov.br/saude/w/epidemiologia_e_informacao/geoprocessamento_e_informacoes_socioambientais/265863
 
+- SMS-SP/CEInfo - Dados demograficos e socioambientais por AAUBS 2025 preliminar (Censo 2022/IBGE)
+  https://drive.google.com/drive/folders/12w8xMlspq1f-yWxl_xRVFkv1p4psNMQZ?usp=sharing
+
+- SMS-SP - Quadro de parametros para territorializacao (Documento Norteador NUVIS-AB, versao 2025)
+  https://prefeitura.sp.gov.br/documents/d/saude/quadro_territorializacao_2025-pdf
+
 - GeoSampa - Download de dados geograficos do Mapa Digital da Cidade de Sao Paulo  
   https://download.geosampa.prefeitura.sp.gov.br/
 
@@ -36,6 +43,8 @@ Este arquivo documenta a origem dos dados usados na entrega da Rede de Acesso SP
 ## Observacoes
 
 - A base final do projeto nao replica integralmente as bases publicas. Ela usa um recorte tratado para fins academicos, mantendo apenas os campos necessarios para o funcionamento do sistema.
-- As populacoes usadas como peso dos vertices representam a populacao de referencia do distrito/territorio associado a cada UBS.
+- Os 71 vertices foram associados a base AAUBS pelo codigo CNES. O peso do vertice representa a populacao residente estimada na area de abrangencia da UBS, utilizando `V001AAUBS - Total de pessoas`.
+- A SMS-SP identifica populacao cadastrada por equipe e indicadores por UBS em sistemas de acesso restrito. Portanto, nao foi possivel incorporar capacidade ou numero de equipes de maneira publica e reproduzivel nesta entrega.
+- O modelo interpreta menor populacao de abrangencia como menor demanda territorial potencial sob hipotese de capacidades comparaveis; nao afirma fila real nem tempo de espera garantido.
 - As adjacencias do grafo nao sao uma fonte externa oficial: elas foram calculadas no projeto com base na proximidade geografica entre UBSs.
 - Os enderecos e coordenadas devem ser entendidos como dados publicos tratados; caso seja necessaria validacao institucional, a referencia primaria deve ser a Prefeitura de Sao Paulo/SMS e o Busca Saude.

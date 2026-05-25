@@ -1,0 +1,579 @@
+{
+  "fonte": "SMS-SP/CEInfo - Dados sociodemograficos organizados segundo Area de Abrangencia de UBS (AAUBS 2025 preliminar), Censo Demografico 2022/IBGE",
+  "arquivo_origem": "AAUBS2025prelim_Dados_Estimados_Agregados_por_setores_UniversoCenso2022_MSP_SC_AAUBS2025prelim_26012026",
+  "url": "https://drive.google.com/drive/folders/12w8xMlspq1f-yWxl_xRVFkv1p4psNMQZ?usp=sharing",
+  "variavel": "V001AAUBS - Total de pessoas",
+  "criterio_associacao": "CNES da UBS (CNESAAUBS)",
+  "total_vertices_associados": 71,
+  "observacao": "Populacao residente estimada na area de abrangencia; nao representa fila em tempo real nem capacidade/equipes da unidade.",
+  "registros": [
+    {
+      "vertice_id": 1,
+      "cnes": 2787113,
+      "ubs_projeto": "HUMAITA-UBS DR. JOAO AZEVEDO LAGE",
+      "ubs_fonte": "UBS HUMAIT\u00c1",
+      "populacao_area_abrangencia": 39373,
+      "populacao_distrito_anterior": 73235
+    },
+    {
+      "vertice_id": 2,
+      "cnes": 2786834,
+      "ubs_projeto": "CAMBUCI-UBS",
+      "ubs_fonte": "UBS CAMBUCI",
+      "populacao_area_abrangencia": 79792,
+      "populacao_distrito_anterior": 40667
+    },
+    {
+      "vertice_id": 3,
+      "cnes": 6090621,
+      "ubs_projeto": "REPUBLICA - UBS",
+      "ubs_fonte": "UBS REP\u00daBLICA",
+      "populacao_area_abrangencia": 52057,
+      "populacao_distrito_anterior": 61832
+    },
+    {
+      "vertice_id": 4,
+      "cnes": 5975220,
+      "ubs_projeto": "SE - NASF/UBS",
+      "ubs_fonte": "UBS S\u00c9",
+      "populacao_area_abrangencia": 49150,
+      "populacao_distrito_anterior": 26693
+    },
+    {
+      "vertice_id": 5,
+      "cnes": 2752166,
+      "ubs_projeto": "AGUA RASA-UBS",
+      "ubs_fonte": "AMA/UBS AGUA RASA",
+      "populacao_area_abrangencia": 39621,
+      "populacao_distrito_anterior": 82564
+    },
+    {
+      "vertice_id": 6,
+      "cnes": 2752166,
+      "ubs_projeto": "MOOCA - UBS",
+      "ubs_fonte": "AMA/UBS AGUA RASA",
+      "populacao_area_abrangencia": 39621,
+      "populacao_distrito_anterior": 82564
+    },
+    {
+      "vertice_id": 7,
+      "cnes": 2752174,
+      "ubs_projeto": "BELENZINHO MARCUS WOLOSKER-UBS",
+      "ubs_fonte": "UBS BELENZINHO",
+      "populacao_area_abrangencia": 71964,
+      "populacao_distrito_anterior": 49213
+    },
+    {
+      "vertice_id": 8,
+      "cnes": 2752182,
+      "ubs_projeto": "MANOEL SALDIVA NETO -UBS",
+      "ubs_fonte": "UBS BRAS",
+      "populacao_area_abrangencia": 39282,
+      "populacao_distrito_anterior": 33045
+    },
+    {
+      "vertice_id": 9,
+      "cnes": 6194990,
+      "ubs_projeto": "CHACARA CRUZEIRO DO SUL - UBS",
+      "ubs_fonte": "AMA/UBS CHAC CRUZEIRO DO SUL",
+      "populacao_area_abrangencia": 16893,
+      "populacao_distrito_anterior": 138107
+    },
+    {
+      "vertice_id": 10,
+      "cnes": 2752360,
+      "ubs_projeto": "V NOVA MANCHESTER (ARLINDO GENNARI,DR)-UBS",
+      "ubs_fonte": "UBS VL N MANCHESTER",
+      "populacao_area_abrangencia": 45923,
+      "populacao_distrito_anterior": 84925
+    },
+    {
+      "vertice_id": 11,
+      "cnes": 2042258,
+      "ubs_projeto": "MOOCA I-UBS",
+      "ubs_fonte": "UBS MOOCA I",
+      "populacao_area_abrangencia": 53332,
+      "populacao_distrito_anterior": 80330
+    },
+    {
+      "vertice_id": 12,
+      "cnes": 2788195,
+      "ubs_projeto": "PARI - UBS",
+      "ubs_fonte": "AMA/UBS PARI",
+      "populacao_area_abrangencia": 18498,
+      "populacao_distrito_anterior": 19069
+    },
+    {
+      "vertice_id": 13,
+      "cnes": 2787032,
+      "ubs_projeto": "TRINDADE,ENG-UBS",
+      "ubs_fonte": "UBS ENGENHEIRO TRINDADE",
+      "populacao_area_abrangencia": 31547,
+      "populacao_distrito_anterior": 129100
+    },
+    {
+      "vertice_id": 14,
+      "cnes": 2752239,
+      "ubs_projeto": "HERMENEGILDO MORBIN JR,DR- JD INDEPENDENCIA UBS",
+      "ubs_fonte": "AMA/UBS JD INDEPEND\u00caNCIA",
+      "populacao_area_abrangencia": 23847,
+      "populacao_distrito_anterior": 142948
+    },
+    {
+      "vertice_id": 15,
+      "cnes": 2752387,
+      "ubs_projeto": "V SANTO ESTEVAO-UBS",
+      "ubs_fonte": "UBS VL SANTO ESTEV\u00c3O",
+      "populacao_area_abrangencia": 67803,
+      "populacao_distrito_anterior": 96045
+    },
+    {
+      "vertice_id": 16,
+      "cnes": 2788918,
+      "ubs_projeto": "V FORMOSA - UBS (ANTONIO SILVEIRA E OLIVEIRA)",
+      "ubs_fonte": "UBS VL FORMOSA I",
+      "populacao_area_abrangencia": 40295,
+      "populacao_distrito_anterior": 94100
+    },
+    {
+      "vertice_id": 17,
+      "cnes": 2788721,
+      "ubs_projeto": "V ARICANDUVA-UBS",
+      "ubs_fonte": "UBS VL ARICANDUVA",
+      "populacao_area_abrangencia": 16905,
+      "populacao_distrito_anterior": 105575
+    },
+    {
+      "vertice_id": 18,
+      "cnes": 2045451,
+      "ubs_projeto": "HERMINIO MOREIRA,DR-UBS V. ALPINA",
+      "ubs_fonte": "UBS VL ALPINA",
+      "populacao_area_abrangencia": 27999,
+      "populacao_distrito_anterior": 104686
+    },
+    {
+      "vertice_id": 19,
+      "cnes": 3359131,
+      "ubs_projeto": "V PRUDENTE-UBS",
+      "ubs_fonte": "UBS VL PRUDENTE",
+      "populacao_area_abrangencia": 46729,
+      "populacao_distrito_anterior": 104686
+    },
+    {
+      "vertice_id": 20,
+      "cnes": 2786761,
+      "ubs_projeto": "AUGUSTO L A GALVAO,DR- UBS",
+      "ubs_fonte": "UBS AUGUSTO LEOPOLDO AYROSA GALV\u00c3O",
+      "populacao_area_abrangencia": 21070,
+      "populacao_distrito_anterior": 281977
+    },
+    {
+      "vertice_id": 21,
+      "cnes": 2788071,
+      "ubs_projeto": "MARIA CECILIA F DONNANGELO,PROFA-UBS",
+      "ubs_fonte": "UBS MARIA CEC\u00cdLIA F. DONNANGELO",
+      "populacao_area_abrangencia": 26421,
+      "populacao_distrito_anterior": 281977
+    },
+    {
+      "vertice_id": 22,
+      "cnes": 2787148,
+      "ubs_projeto": "ILZA WELTMAN HUTZLER DRA-UBS",
+      "ubs_fonte": "UBS DRA ILZA WELTMAN HUTZLER",
+      "populacao_area_abrangencia": 25546,
+      "populacao_distrito_anterior": 146387
+    },
+    {
+      "vertice_id": 23,
+      "cnes": 2788853,
+      "ubs_projeto": "V ESPANHOLA-UBS",
+      "ubs_fonte": "UBS VL ESPANHOLA",
+      "populacao_area_abrangencia": 15270,
+      "populacao_distrito_anterior": 146387
+    },
+    {
+      "vertice_id": 24,
+      "cnes": 2027682,
+      "ubs_projeto": "CASA VERDE-UBS",
+      "ubs_fonte": "UBS CASA VERDE",
+      "populacao_area_abrangencia": 20218,
+      "populacao_distrito_anterior": 86004
+    },
+    {
+      "vertice_id": 25,
+      "cnes": 2091712,
+      "ubs_projeto": "WALTER ELIAS,DR- CASA VERDE BAIXA UBS",
+      "ubs_fonte": "UBS DR WALTER ELIAS",
+      "populacao_area_abrangencia": 8919,
+      "populacao_distrito_anterior": 86004
+    },
+    {
+      "vertice_id": 26,
+      "cnes": 2789140,
+      "ubs_projeto": "V PALMEIRAS(V BANCARIA)-UBS",
+      "ubs_fonte": "UBS VL PALMEIRAS",
+      "populacao_area_abrangencia": 17391,
+      "populacao_distrito_anterior": 140083
+    },
+    {
+      "vertice_id": 27,
+      "cnes": 2027062,
+      "ubs_projeto": "V RAMOS-UBS FREGUESIA DO O",
+      "ubs_fonte": "UBS VL RAMOS - FREGUESIA DO \u00d3",
+      "populacao_area_abrangencia": 16808,
+      "populacao_distrito_anterior": 140083
+    },
+    {
+      "vertice_id": 28,
+      "cnes": 2787962,
+      "ubs_projeto": "JACANA-UBS",
+      "ubs_fonte": "UBS JA\u00c7AN\u00c3",
+      "populacao_area_abrangencia": 21600,
+      "populacao_distrito_anterior": 96054
+    },
+    {
+      "vertice_id": 29,
+      "cnes": 2788306,
+      "ubs_projeto": "PQ EDU CHAVES-UBS",
+      "ubs_fonte": "UBS PQ EDU CHAVES",
+      "populacao_area_abrangencia": 25581,
+      "populacao_distrito_anterior": 96054
+    },
+    {
+      "vertice_id": 30,
+      "cnes": 2786710,
+      "ubs_projeto": "ADELAIDE LOPES,DONA-UBS V. CAROLINA",
+      "ubs_fonte": "UBS DONA ADELAIDE LOPES",
+      "populacao_area_abrangencia": 26552,
+      "populacao_distrito_anterior": 79657
+    },
+    {
+      "vertice_id": 31,
+      "cnes": 2788756,
+      "ubs_projeto": "V BARBOSA-UBS",
+      "ubs_fonte": "AMA/UBS VL BARBOSA",
+      "populacao_area_abrangencia": 21907,
+      "populacao_distrito_anterior": 79657
+    },
+    {
+      "vertice_id": 32,
+      "cnes": 2752212,
+      "ubs_projeto": "DOMINGOS M CILO,DR V AURORA-UBS",
+      "ubs_fonte": "UBS VL AURORA",
+      "populacao_area_abrangencia": 24060,
+      "populacao_distrito_anterior": 109228
+    },
+    {
+      "vertice_id": 33,
+      "cnes": 2788047,
+      "ubs_projeto": "LAUSANE PAULISTA-UBS",
+      "ubs_fonte": "AMA/UBS LAUZANE PAULISTA",
+      "populacao_area_abrangencia": 61954,
+      "populacao_distrito_anterior": 109228
+    },
+    {
+      "vertice_id": 34,
+      "cnes": 2788136,
+      "ubs_projeto": "MOINHO VELHO I-UBS",
+      "ubs_fonte": "UBS MOINHO VELHO",
+      "populacao_area_abrangencia": 18161,
+      "populacao_distrito_anterior": 171232
+    },
+    {
+      "vertice_id": 35,
+      "cnes": 2789167,
+      "ubs_projeto": "V PEREIRA BARRETO-UBS",
+      "ubs_fonte": "AMA/UBS VL PEREIRA BARRETO",
+      "populacao_area_abrangencia": 18075,
+      "populacao_distrito_anterior": 171232
+    },
+    {
+      "vertice_id": 36,
+      "cnes": 2027666,
+      "ubs_projeto": "CHORA MENINO-UBS",
+      "ubs_fonte": "UBS CHORA MENINO",
+      "populacao_area_abrangencia": 61634,
+      "populacao_distrito_anterior": 113253
+    },
+    {
+      "vertice_id": 37,
+      "cnes": 2027631,
+      "ubs_projeto": "JOAQUIM ANTONIO EIRADO-UBS",
+      "ubs_fonte": "UBS JOAQUIM ANTONIO EIRADO",
+      "populacao_area_abrangencia": 54118,
+      "populacao_distrito_anterior": 113253
+    },
+    {
+      "vertice_id": 38,
+      "cnes": 2027690,
+      "ubs_projeto": "MARIQUINHA SCIACIA,D -UBS",
+      "ubs_fonte": "UBS DONA MARIQUINHA SCIASCIA",
+      "populacao_area_abrangencia": 25432,
+      "populacao_distrito_anterior": 223553
+    },
+    {
+      "vertice_id": 39,
+      "cnes": 2027275,
+      "ubs_projeto": "V ALBERTINA  DR. OSVALDO MARCAL-UBS",
+      "ubs_fonte": "UBS VL ALBERTINA",
+      "populacao_area_abrangencia": 23405,
+      "populacao_distrito_anterior": 223553
+    },
+    {
+      "vertice_id": 40,
+      "cnes": 2027674,
+      "ubs_projeto": "V NIVI-UBS",
+      "ubs_fonte": "UBS VL NIVI",
+      "populacao_area_abrangencia": 42715,
+      "populacao_distrito_anterior": 96358
+    },
+    {
+      "vertice_id": 41,
+      "cnes": 4049985,
+      "ubs_projeto": "WAMBERTO DIAS COSTA -UBS",
+      "ubs_fonte": "AMA/UBS WAMBERTO DIAS DA COSTA",
+      "populacao_area_abrangencia": 40501,
+      "populacao_distrito_anterior": 96358
+    },
+    {
+      "vertice_id": 42,
+      "cnes": 2068079,
+      "ubs_projeto": "CARANDIRU-UBS",
+      "ubs_fonte": "UBS CARANDIRU",
+      "populacao_area_abrangencia": 13226,
+      "populacao_distrito_anterior": 57079
+    },
+    {
+      "vertice_id": 43,
+      "cnes": 2788950,
+      "ubs_projeto": "V GUILHERME- UBS",
+      "ubs_fonte": "UBS VL GUILHERME",
+      "populacao_area_abrangencia": 19759,
+      "populacao_distrito_anterior": 57079
+    },
+    {
+      "vertice_id": 44,
+      "cnes": 2787504,
+      "ubs_projeto": "JD JAPAO-UBS",
+      "ubs_fonte": "UBS JD JAP\u00c3O",
+      "populacao_area_abrangencia": 28342,
+      "populacao_distrito_anterior": 114025
+    },
+    {
+      "vertice_id": 45,
+      "cnes": 2788349,
+      "ubs_projeto": "PQ NOVO MUNDO I-UBS",
+      "ubs_fonte": "UBS PQ NOVO MUNDO I",
+      "populacao_area_abrangencia": 28277,
+      "populacao_distrito_anterior": 114025
+    },
+    {
+      "vertice_id": 46,
+      "cnes": 2788845,
+      "ubs_projeto": "V EDE-UBS III",
+      "ubs_fonte": "UBS VL EDE",
+      "populacao_area_abrangencia": 19586,
+      "populacao_distrito_anterior": 123456
+    },
+    {
+      "vertice_id": 47,
+      "cnes": 2789051,
+      "ubs_projeto": "V MEDEIROS-UBS",
+      "ubs_fonte": "AMA/UBS VL MEDEIROS",
+      "populacao_area_abrangencia": 22204,
+      "populacao_distrito_anterior": 123456
+    },
+    {
+      "vertice_id": 48,
+      "cnes": 3503488,
+      "ubs_projeto": "ALTO DE PINHEIROS- UBS",
+      "ubs_fonte": "UBS ALTO DE PINHEIROS",
+      "populacao_area_abrangencia": 35186,
+      "populacao_distrito_anterior": 40962
+    },
+    {
+      "vertice_id": 49,
+      "cnes": 2786877,
+      "ubs_projeto": "NANCY ABRANCHES - UBS CAXINGUI",
+      "ubs_fonte": "UBS CAXINGUI",
+      "populacao_area_abrangencia": 29494,
+      "populacao_distrito_anterior": 53836
+    },
+    {
+      "vertice_id": 50,
+      "cnes": 2752301,
+      "ubs_projeto": "JOSE DE BARROS MAGALDI-UBS",
+      "ubs_fonte": "UBS DR. JOS\u00c9 DE BARROS MAGALDI",
+      "populacao_area_abrangencia": 58720,
+      "populacao_distrito_anterior": 97229
+    },
+    {
+      "vertice_id": 51,
+      "cnes": 2789116,
+      "ubs_projeto": "V NOVA JAGUARE-UBS",
+      "ubs_fonte": "AMA/UBS VL NOVA JAGUARE",
+      "populacao_area_abrangencia": 35406,
+      "populacao_distrito_anterior": 55192
+    },
+    {
+      "vertice_id": 52,
+      "cnes": 2789248,
+      "ubs_projeto": "V ROMANA-UBS",
+      "ubs_fonte": "UBS VL ROMANA",
+      "populacao_area_abrangencia": 42383,
+      "populacao_distrito_anterior": 67170
+    },
+    {
+      "vertice_id": 53,
+      "cnes": 2788470,
+      "ubs_projeto": "PAULO M ALBERNAZ F, DR - REAL PARQUE-UBS",
+      "ubs_fonte": "UBS REAL PQ",
+      "populacao_area_abrangencia": 24580,
+      "populacao_distrito_anterior": 52921
+    },
+    {
+      "vertice_id": 54,
+      "cnes": 2788683,
+      "ubs_projeto": "JOSE S RIBEIRO (V ANGLO BRASILEIRO)-UBS",
+      "ubs_fonte": "UBS VL ANGLO",
+      "populacao_area_abrangencia": 61440,
+      "populacao_distrito_anterior": 114788
+    },
+    {
+      "vertice_id": 55,
+      "cnes": 2788063,
+      "ubs_projeto": "MANOEL J PERA,DR-UBS",
+      "ubs_fonte": "UBS DR. MANOEL JOAQUIM P\u00caRA",
+      "populacao_area_abrangencia": 54372,
+      "populacao_distrito_anterior": 65909
+    },
+    {
+      "vertice_id": 56,
+      "cnes": 2027461,
+      "ubs_projeto": "PQ DA LAPA-UBS",
+      "ubs_fonte": "UBS PQ DA LAPA",
+      "populacao_area_abrangencia": 47935,
+      "populacao_distrito_anterior": 45092
+    },
+    {
+      "vertice_id": 57,
+      "cnes": 2787156,
+      "ubs_projeto": "MASSAKI UDIHARA (JD AEROPORTO)-UBS",
+      "ubs_fonte": "UBS JD AEROPORTO",
+      "populacao_area_abrangencia": 69897,
+      "populacao_distrito_anterior": 63744
+    },
+    {
+      "vertice_id": 58,
+      "cnes": 2042967,
+      "ubs_projeto": "JD DA SAUDE (NEUSA ROSALIA MORALES)-UBS",
+      "ubs_fonte": "UBS JD DA SA\u00daDE",
+      "populacao_area_abrangencia": 31075,
+      "populacao_distrito_anterior": 113728
+    },
+    {
+      "vertice_id": 59,
+      "cnes": 2787598,
+      "ubs_projeto": "V GUMERCINDO-UBS PROF. JANDIRA MANSUR",
+      "ubs_fonte": "UBS VL GUMERCINDO PROF JANDIRA MASSUR",
+      "populacao_area_abrangencia": 31233,
+      "populacao_distrito_anterior": 113728
+    },
+    {
+      "vertice_id": 60,
+      "cnes": 2042975,
+      "ubs_projeto": "OSWALDO MARASCA JUNIOR,DR-UBS",
+      "ubs_fonte": "UBS VL MONUMENTO",
+      "populacao_area_abrangencia": 28873,
+      "populacao_distrito_anterior": 112222
+    },
+    {
+      "vertice_id": 61,
+      "cnes": 2788543,
+      "ubs_projeto": "S VICENTE DE PAULA-UBS",
+      "ubs_fonte": "AMA/UBS SAO VICENTE DE PAULA",
+      "populacao_area_abrangencia": 33287,
+      "populacao_distrito_anterior": 112222
+    },
+    {
+      "vertice_id": 62,
+      "cnes": 2030934,
+      "ubs_projeto": "CIDADE VARGAS-UBS",
+      "ubs_fonte": "UBS GUARANI VARGAS",
+      "populacao_area_abrangencia": 34294,
+      "populacao_distrito_anterior": 229346
+    },
+    {
+      "vertice_id": 63,
+      "cnes": 2786966,
+      "ubs_projeto": "CUPECE-UBS DR. WALDOMIRO PREGNOLATO",
+      "ubs_fonte": "UBS CUPECE",
+      "populacao_area_abrangencia": 23987,
+      "populacao_distrito_anterior": 229346
+    },
+    {
+      "vertice_id": 64,
+      "cnes": 2789132,
+      "ubs_projeto": "MAX PERLMAN (V OLIMPIA)-UBS",
+      "ubs_fonte": "UBS VL OLIMPIA - MAX PERLMAN",
+      "populacao_area_abrangencia": 34224,
+      "populacao_distrito_anterior": 89382
+    },
+    {
+      "vertice_id": 65,
+      "cnes": 2788578,
+      "ubs_projeto": "SIGMUND FREUD,DR-UBS II INDIANAPOLIS",
+      "ubs_fonte": "UBS INDIANOPOLIS",
+      "populacao_area_abrangencia": 47785,
+      "populacao_distrito_anterior": 89382
+    },
+    {
+      "vertice_id": 66,
+      "cnes": 2788128,
+      "ubs_projeto": "MOINHO VELHO II-UBS",
+      "ubs_fonte": "UBS MOINHO VELHO II",
+      "populacao_area_abrangencia": 19800,
+      "populacao_distrito_anterior": 263621
+    },
+    {
+      "vertice_id": 67,
+      "cnes": 2788519,
+      "ubs_projeto": "SACOMA-UBS",
+      "ubs_fonte": "UBS SACOMA",
+      "populacao_area_abrangencia": 50983,
+      "populacao_distrito_anterior": 263621
+    },
+    {
+      "vertice_id": 68,
+      "cnes": 2765993,
+      "ubs_projeto": "CHACARA STO ANTONIO-UBS",
+      "ubs_fonte": "UBS CH\u00c1CARA SANTO ANTONIO",
+      "populacao_area_abrangencia": 46086,
+      "populacao_distrito_anterior": 74447
+    },
+    {
+      "vertice_id": 69,
+      "cnes": 2788101,
+      "ubs_projeto": "MILTON SANTOS, PROF- UBS",
+      "ubs_fonte": "UBS PROF. MILTON SANTOS",
+      "populacao_area_abrangencia": 40861,
+      "populacao_distrito_anterior": 134147
+    },
+    {
+      "vertice_id": 70,
+      "cnes": 2788330,
+      "ubs_projeto": "PQ IMPERIAL-UBS",
+      "ubs_fonte": "UBS PQ IMPERIAL",
+      "populacao_area_abrangencia": 64973,
+      "populacao_distrito_anterior": 134147
+    },
+    {
+      "vertice_id": 71,
+      "cnes": 6564410,
+      "ubs_projeto": "PARAISOPOLIS - UBS",
+      "ubs_fonte": "UBS PARAISOPOLIS III",
+      "populacao_area_abrangencia": 42688,
+      "populacao_distrito_anterior": 163508
+    }
+  ]
+}
