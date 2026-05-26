@@ -494,8 +494,9 @@ def criar_figura_exemplo_recomendacao(grafo_obj: GrafoSP, metricas_obj: Metricas
     }
     ranking = listar_ubs_por_distancia(grafo_obj, exemplo["lat"], exemplo["lon"])
     ranking = anexar_pressao_ao_ranking(ranking, metricas_obj.ranking_cobertura_ubs())
+    ranking = anexar_distancias_rota_ao_ranking(grafo_obj, ranking, exemplo)
     raio = calcular_raio_recomendacao(ranking)
-    candidatas = [item for item in ranking if item["distancia_km"] <= raio]
+    candidatas = filtrar_ranking_ubs(ranking, distancia_maxima=raio)
     recomendada = ordenar_por_menor_pressao(candidatas)[0] if candidatas else ranking[0]
     ids_exemplo = {int(item["id"]) for item in candidatas}
     ids_exemplo.add(int(recomendada["id"]))
@@ -980,7 +981,7 @@ def filtrar_ranking_ubs(
     if distancia_maxima is not None:
         resultado = [
             item for item in resultado
-            if item["distancia_km"] <= distancia_maxima
+            if distancia_utilizada_na_busca(item) <= distancia_maxima
         ]
 
     if ids_permitidos is not None:
@@ -1027,12 +1028,20 @@ def ordenar_por_menor_pressao(ranking: list[dict]) -> list[dict]:
     )
 
 
+def distancia_utilizada_na_busca(item: dict) -> float:
+    """Usa distancia viaria quando disponivel; mantem aproximacao como fallback."""
+    distancia_rota = item.get("distancia_rota_km")
+    if distancia_rota is not None:
+        return float(distancia_rota)
+    return float(item.get("distancia_km", float("inf")))
+
+
 def calcular_raio_recomendacao(ranking: list[dict]) -> float:
-    """Escolhe um raio próximo e só expande até o limite quando há poucas UBSs."""
+    """Escolhe raio pela rota; expande ate o limite quando ha poucas UBSs."""
     if not ranking:
         return RAIO_PADRAO_RECOMENDACAO_KM
 
-    distancias = sorted(float(item["distancia_km"]) for item in ranking)
+    distancias = sorted(distancia_utilizada_na_busca(item) for item in ranking)
     no_raio_padrao = [
         dist for dist in distancias
         if dist <= RAIO_PADRAO_RECOMENDACAO_KM
@@ -1060,6 +1069,36 @@ def calcular_raio_recomendacao(ranking: list[dict]) -> float:
     )
 
 
+def anexar_distancias_rota_ao_ranking(
+    grafo: GrafoSP,
+    ranking: list[dict],
+    endereco_localizado: dict,
+) -> list[dict]:
+    """Inclui distancia de rota em lote para candidatas geometricamente viaveis."""
+    potenciais = [
+        dict(item) for item in ranking
+        if float(item["distancia_km"]) <= RAIO_MAXIMO_RECOMENDACAO_KM
+    ]
+    destinos = tuple(
+        (
+            int(item["id"]),
+            float(grafo.distritos[int(item["id"])]["lat"]),
+            float(grafo.distritos[int(item["id"])]["lon"]),
+        )
+        for item in potenciais
+    )
+    distancias_rota = obter_distancias_rota_osrm(
+        float(endereco_localizado["lat"]),
+        float(endereco_localizado["lon"]),
+        destinos,
+    )
+    for item in potenciais:
+        item_id = int(item["id"])
+        item["distancia_rota_km"] = distancias_rota.get(item_id)
+        item["endereco"] = grafo.distritos[item_id].get("endereco", "")
+    return potenciais
+
+
 def adicionar_rota_ao_item(
     grafo: GrafoSP,
     item: dict,
@@ -1084,6 +1123,54 @@ def adicionar_rota_ao_item(
     item["endereco"] = ubs_item.get("endereco", "")
     item["bairro"] = ubs_item.get("bairro", item.get("bairro", "N/D"))
     return item
+
+
+@st.cache_data(ttl=60 * 60 * 24)
+def obter_distancias_rota_osrm(
+    origem_lat: float,
+    origem_lon: float,
+    destinos: tuple[tuple[int, float, float], ...],
+) -> dict[int, float]:
+    """Busca as distancias viarias da origem para varias UBSs em uma requisicao."""
+    if not destinos:
+        return {}
+
+    pontos = [f"{origem_lon},{origem_lat}"] + [
+        f"{lon},{lat}" for _, lat, lon in destinos
+    ]
+    coordenadas = ";".join(pontos)
+    indices_destinos = ";".join(str(indice) for indice in range(1, len(pontos)))
+    params = urlencode({
+        "sources": "0",
+        "destinations": indices_destinos,
+        "annotations": "distance",
+    })
+
+    for perfil in ("foot", "driving"):
+        url = f"https://router.project-osrm.org/table/v1/{perfil}/{coordenadas}?{params}"
+        req = Request(
+            url,
+            headers={
+                "User-Agent": "RedeAcessoSP/1.0 (academic project)",
+                "Accept": "application/json",
+            },
+        )
+        try:
+            with urlopen(req, timeout=8) as resp:
+                payload = json.loads(resp.read().decode("utf-8"))
+        except (HTTPError, URLError, TimeoutError, json.JSONDecodeError):
+            continue
+
+        matriz = payload.get("distances") or []
+        if not matriz or not matriz[0]:
+            continue
+
+        return {
+            item_id: round(float(distancia) / 1000, 2)
+            for (item_id, _, _), distancia in zip(destinos, matriz[0])
+            if distancia is not None
+        }
+    return {}
 
 
 @st.cache_data(ttl=60 * 60 * 24)
@@ -1361,6 +1448,9 @@ with tab1:
         opcoes_categoria: list[dict] = []
         total_candidatas_endereco = 0
         ids_categoria_mapa: set[int] = set()
+        ids_candidatas_mapa: set[int] = set()
+        ids_contingencia_mapa: set[int] = set()
+        alternativas_contingencia: list[dict] = []
         rotas_mapa: dict[int, float | None] = {}
 
         if area_ativa and ubs_area:
@@ -1397,6 +1487,11 @@ with tab1:
                 ranking_distancias = anexar_pressao_ao_ranking(
                     ranking_distancias,
                     metricas.ranking_cobertura_ubs(),
+                )
+                ranking_distancias = anexar_distancias_rota_ao_ranking(
+                    grafo,
+                    ranking_distancias,
+                    endereco_localizado,
                 )
 
                 raio_sugerido = calcular_raio_recomendacao(ranking_distancias)
@@ -1465,7 +1560,7 @@ with tab1:
                         key=distancia_key,
                     )
                     st.caption(
-                        "A recomendação compara apenas UBSs dentro desse raio; "
+                        "A recomendação compara apenas UBSs cuja rota fica dentro desse raio; "
                         "a população estimada da área de abrangência ordena as candidatas próximas."
                     )
                     mesmo_distrito = st.checkbox(
@@ -1489,10 +1584,7 @@ with tab1:
 
                 recomendadas = ordenar_por_menor_pressao(ranking_filtrado)
                 total_candidatas_endereco = len(recomendadas)
-                opcoes_categoria = [
-                    adicionar_rota_ao_item(grafo, item, endereco_localizado)
-                    for item in recomendadas[:MAX_OPCOES_RECOMENDACAO]
-                ]
+                opcoes_categoria = recomendadas[:MAX_OPCOES_RECOMENDACAO]
 
                 opcoes_categoria = sorted(
                     opcoes_categoria,
@@ -1508,9 +1600,13 @@ with tab1:
                     int(item["id"])
                     for item in opcoes_categoria
                 }
+                ids_candidatas_mapa = {
+                    int(item["id"])
+                    for item in ranking_filtrado
+                }
                 rotas_mapa = {
                     int(item["id"]): item.get("distancia_rota_km")
-                    for item in opcoes_categoria
+                    for item in ranking_filtrado
                 }
 
                 id_estado = st.session_state.get("ubs_recomendada_id")
@@ -1530,9 +1626,9 @@ with tab1:
                     )
 
                 if opcoes_categoria:
-                    st.markdown(f"#### UBSs candidatas em até {distancia_maxima:.1f} km do seu endereço")
+                    st.markdown(f"#### UBSs candidatas em até {distancia_maxima:.1f} km de rota do seu endereço")
                     st.caption(
-                        f"{total_candidatas_endereco} UBSs foram comparadas a partir do endereço informado. "
+                        f"{total_candidatas_endereco} UBSs com rota dentro do limite foram comparadas a partir do endereço informado. "
                         f"Mostrando até {MAX_OPCOES_RECOMENDACAO} opções; a recomendação prioriza menor "
                         "população na área de abrangência, com distância como desempate."
                     )
@@ -1576,10 +1672,28 @@ with tab1:
                                     st.rerun()
 
                 if ubs_escolhida:
+                    ubs_escolhida = adicionar_rota_ao_item(
+                        grafo,
+                        ubs_escolhida,
+                        endereco_localizado,
+                    )
                     ubs_destino_id = int(ubs_escolhida["id"])
-                    distancia_endereco_ubs = float(ubs_escolhida["distancia_km"])
+                    distancia_endereco_ubs = distancia_utilizada_na_busca(ubs_escolhida)
 
                     rota_endereco_ubs = ubs_escolhida.get("rota")
+                    destino = grafo.distritos[ubs_destino_id]
+                    alternativas_contingencia = [
+                        item for item in listar_ubs_por_distancia(
+                            grafo,
+                            destino["lat"],
+                            destino["lon"],
+                        )
+                        if int(item["id"]) != ubs_destino_id
+                        and float(item["distancia_km"]) <= RAIO_ALTERNATIVAS_CONTINGENCIA_KM
+                    ]
+                    ids_contingencia_mapa = {
+                        int(item["id"]) for item in alternativas_contingencia
+                    }
 
                     st.success(f"UBS selecionada: {grafo.get_nome(ubs_destino_id)}")
                     if rota_endereco_ubs:
@@ -1601,7 +1715,7 @@ with tab1:
 
         if endereco_localizado:
             vizinhos_ids = set()
-            ids_mapa = set(ids_categoria_mapa)
+            ids_mapa = set(ids_candidatas_mapa) | set(ids_contingencia_mapa)
             if ubs_destino_id in grafo.distritos:
                 ids_mapa.add(ubs_destino_id)
         elif area_ativa:
@@ -1615,8 +1729,8 @@ with tab1:
 
         grupos_marcadores = {
             "UBS recomendada": {"color": ACCENT_RED, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
-            "Candidatas da busca": {"color": ACCENT_AMBER, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
-            "UBSs vizinhas": {"color": ACCENT_GREEN, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
+            "Candidatas no raio do endereço": {"color": ACCENT_AMBER, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
+            "Alternativas em 2 km da recomendada": {"color": ACCENT_GREEN, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
             "Outras UBSs": {"color": PLOT_MUTED, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
         }
 
@@ -1640,14 +1754,17 @@ with tab1:
             if ubs_destino_id in grafo.distritos and did == ubs_destino_id:
                 grupo = "UBS recomendada"
                 tamanho = 19
-            elif did in ids_categoria_mapa:
-                grupo = "Candidatas da busca"
+            elif did in ids_candidatas_mapa:
+                grupo = "Candidatas no raio do endereço"
                 tamanho = 12
+            elif did in ids_contingencia_mapa:
+                grupo = "Alternativas em 2 km da recomendada"
+                tamanho = 10
             elif did in ids_area_mapa:
-                grupo = "Candidatas da busca"
+                grupo = "Candidatas no raio do endereço"
                 tamanho = 12
             elif did in vizinhos_ids:
-                grupo = "UBSs vizinhas"
+                grupo = "Alternativas em 2 km da recomendada"
                 tamanho = 10
             else:
                 grupo = "Outras UBSs"
@@ -1736,9 +1853,9 @@ with tab1:
                 showlegend=True,
             ))
 
-            zoom_lats = list(rota_lats)
-            zoom_lons = list(rota_lons)
-            titulo_mapa = "Caminho até a UBS selecionada"
+            zoom_lats = [*zoom_lats, *rota_lats]
+            zoom_lons = [*zoom_lons, *rota_lons]
+            titulo_mapa = "Candidatas pelo endereço e caminho selecionado"
 
         if endereco_localizado:
             fig_map.add_trace(go.Scattermap(
@@ -1822,17 +1939,13 @@ with tab1:
             st.markdown("### Alternativas perto da recomendada")
             st.caption(
                 f"Contingência em até {RAIO_ALTERNATIVAS_CONTINGENCIA_KM:.0f} km da UBS selecionada, "
-                "caso ela esteja indisponível ou muito cheia. Estas opções não definem a recomendação inicial."
+                "por proximidade geográfica, caso ela esteja indisponível ou muito cheia. "
+                "Estas opções não definem a recomendação inicial."
             )
-            alternativas = [
-                item for item in listar_ubs_por_distancia(grafo, d["lat"], d["lon"])
-                if int(item["id"]) != painel_ubs_id
-                and float(item["distancia_km"]) <= RAIO_ALTERNATIVAS_CONTINGENCIA_KM
-            ]
-            if not alternativas:
+            if not alternativas_contingencia:
                 st.info("Não há outra UBS cadastrada em até 2 km da unidade recomendada.")
             else:
-                for item in alternativas[:5]:
+                for item in alternativas_contingencia[:5]:
                     st.markdown(
                         f"• {item['nome']} ({float(item['distancia_km']):.1f} km da recomendada)"
                     )
@@ -1850,7 +1963,7 @@ with tab1:
             st.markdown("---")
             st.markdown("### Motivo da recomendação")
             st.markdown(
-                "A UBS foi comparada com as candidatas dentro do raio do endereço informado e aparece com menor população estimada em sua área de abrangência."
+                "A UBS foi comparada com as candidatas cuja rota fica dentro do raio do endereço informado e aparece com menor população estimada em sua área de abrangência."
             )
             st.markdown("### Caminho")
             if rota_endereco_ubs:
@@ -2241,7 +2354,7 @@ with tab4:
     st.markdown(
         """
         O sistema recebe um endereço, localiza esse ponto dentro do município de São Paulo
-        e compara somente as UBSs dentro do raio definido a partir desse endereço. A distância
+        e compara somente as UBSs cuja **rota** fica dentro do raio definido a partir desse endereço. A distância
         delimita o conjunto de candidatas, mas a
         ordenação principal usa a **pressão territorial estimada**, isto é, a população
         residente na área de abrangência de cada UBS. Informações públicas completas de
@@ -2261,11 +2374,11 @@ with tab4:
     with col_exemplo_a:
         st.metric("Endereço de exemplo", "Rua Piauí 144")
     with col_exemplo_b:
-        st.metric("Raio usado", f"{raio_exemplo:.1f} km")
+        st.metric("Raio de rota usado", f"{raio_exemplo:.1f} km")
     with col_exemplo_c:
         st.metric("Candidatas no raio do endereço", total_exemplo)
     st.info(
-        f"No exemplo de Higienópolis, as {total_exemplo} candidatas estão em até "
+        f"No exemplo de Higienópolis, as {total_exemplo} candidatas possuem rota em até "
         f"{raio_exemplo:.1f} km da Rua Piauí, 144. Entre elas, a UBS recomendada pelo "
         f"critério de menor demanda territorial estimada é **{grafo.get_nome(int(ubs_exemplo['id']))}**."
     )
