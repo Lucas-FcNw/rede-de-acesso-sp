@@ -276,14 +276,9 @@ SP_BOUNDS = {
     "lon_max": -46.36,
 }
 
-NOMES_SERVICO = {
-    "hospital_sus": "Hospital (SUS)",
-    "upa": "UPA",
-    "ubs": "UBS",
-}
-
 RAIO_PADRAO_RECOMENDACAO_KM = 6.0
 RAIO_MAXIMO_RECOMENDACAO_KM = 12.0
+RAIO_ALTERNATIVAS_CONTINGENCIA_KM = 2.0
 MIN_OPCOES_RECOMENDACAO = 3
 MAX_OPCOES_RECOMENDACAO = 6
 CHAVES_BUSCA = [
@@ -491,7 +486,7 @@ def criar_figura_grafo_completo(grafo_obj: GrafoSP):
 
 
 def criar_figura_exemplo_recomendacao(grafo_obj: GrafoSP, metricas_obj: MetricasAcessibilidade):
-    """Exemplo didático fixo para explicar a recomendação por abrangência."""
+    """Exemplo fixo: compara UBSs no raio do endereco, nao vizinhas da escolhida."""
     exemplo = {
         "label": "Rua Piauí, 144, Higienópolis",
         "lat": -23.5449808,
@@ -502,10 +497,7 @@ def criar_figura_exemplo_recomendacao(grafo_obj: GrafoSP, metricas_obj: Metricas
     raio = calcular_raio_recomendacao(ranking)
     candidatas = [item for item in ranking if item["distancia_km"] <= raio]
     recomendada = ordenar_por_menor_pressao(candidatas)[0] if candidatas else ranking[0]
-    ids_exemplo = {
-        int(item["id"])
-        for item in sorted(candidatas, key=lambda item: item["distancia_km"])[:6]
-    }
+    ids_exemplo = {int(item["id"]) for item in candidatas}
     ids_exemplo.add(int(recomendada["id"]))
 
     fig = go.Figure()
@@ -543,7 +535,7 @@ def criar_figura_exemplo_recomendacao(grafo_obj: GrafoSP, metricas_obj: Metricas
             for did in ids_exemplo
         ],
         hovertemplate="<b>%{customdata[0]}</b><br>%{customdata[1]}<br>%{customdata[2]}<extra></extra>",
-        name="UBSs ao redor",
+        name="Candidatas no raio do endereço",
     ))
     fig.add_trace(go.Scattermap(
         lat=[exemplo["lat"]],
@@ -1276,8 +1268,6 @@ st.caption(
 distrito_id = int(st.session_state["distrito_id"])
 distrito_selecionado_nome = grafo.get_nome(distrito_id)
 
-tipo_servico = "ubs"
-
 # ============================================================================
 # Conteúdo Principal
 # ============================================================================
@@ -1369,6 +1359,7 @@ with tab1:
         ranking_distancias: list[dict] = []
         ranking_filtrado: list[dict] = []
         opcoes_categoria: list[dict] = []
+        total_candidatas_endereco = 0
         ids_categoria_mapa: set[int] = set()
         rotas_mapa: dict[int, float | None] = {}
 
@@ -1497,6 +1488,7 @@ with tab1:
                     ]
 
                 recomendadas = ordenar_por_menor_pressao(ranking_filtrado)
+                total_candidatas_endereco = len(recomendadas)
                 opcoes_categoria = [
                     adicionar_rota_ao_item(grafo, item, endereco_localizado)
                     for item in recomendadas[:MAX_OPCOES_RECOMENDACAO]
@@ -1538,9 +1530,11 @@ with tab1:
                     )
 
                 if opcoes_categoria:
-                    st.markdown(f"#### UBSs recomendadas em até {distancia_maxima:.1f} km")
+                    st.markdown(f"#### UBSs candidatas em até {distancia_maxima:.1f} km do seu endereço")
                     st.caption(
-                        f"{len(opcoes_categoria)} opções comparadas. A recomendação prioriza menor população na área de abrangência; distância entra como desempate."
+                        f"{total_candidatas_endereco} UBSs foram comparadas a partir do endereço informado. "
+                        f"Mostrando até {MAX_OPCOES_RECOMENDACAO} opções; a recomendação prioriza menor "
+                        "população na área de abrangência, com distância como desempate."
                     )
                     colunas_cards = st.columns(min(3, max(1, len(opcoes_categoria))))
                     for idx, item in enumerate(opcoes_categoria):
@@ -1621,7 +1615,7 @@ with tab1:
 
         grupos_marcadores = {
             "UBS recomendada": {"color": ACCENT_RED, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
-            "UBSs próximas": {"color": ACCENT_AMBER, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
+            "Candidatas da busca": {"color": ACCENT_AMBER, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
             "UBSs vizinhas": {"color": ACCENT_GREEN, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
             "Outras UBSs": {"color": PLOT_MUTED, "lats": [], "lons": [], "custom": [], "text": [], "sizes": []},
         }
@@ -1647,10 +1641,10 @@ with tab1:
                 grupo = "UBS recomendada"
                 tamanho = 19
             elif did in ids_categoria_mapa:
-                grupo = "UBSs próximas"
+                grupo = "Candidatas da busca"
                 tamanho = 12
             elif did in ids_area_mapa:
-                grupo = "UBSs próximas"
+                grupo = "Candidatas da busca"
                 tamanho = 12
             elif did in vizinhos_ids:
                 grupo = "UBSs vizinhas"
@@ -1824,20 +1818,39 @@ with tab1:
         st.markdown(f"Conexões: **{grau}**")
 
         st.markdown("---")
-        st.markdown("### UBSs Vizinhas")
-        vizinhos = list(grafo.G.neighbors(painel_ubs_id))
-        if not vizinhos:
-            st.info("Sem UBSs vizinhas cadastradas.")
+        if endereco_localizado and distancia_endereco_ubs is not None:
+            st.markdown("### Alternativas perto da recomendada")
+            st.caption(
+                f"Contingência em até {RAIO_ALTERNATIVAS_CONTINGENCIA_KM:.0f} km da UBS selecionada, "
+                "caso ela esteja indisponível ou muito cheia. Estas opções não definem a recomendação inicial."
+            )
+            alternativas = [
+                item for item in listar_ubs_por_distancia(grafo, d["lat"], d["lon"])
+                if int(item["id"]) != painel_ubs_id
+                and float(item["distancia_km"]) <= RAIO_ALTERNATIVAS_CONTINGENCIA_KM
+            ]
+            if not alternativas:
+                st.info("Não há outra UBS cadastrada em até 2 km da unidade recomendada.")
+            else:
+                for item in alternativas[:5]:
+                    st.markdown(
+                        f"• {item['nome']} ({float(item['distancia_km']):.1f} km da recomendada)"
+                    )
         else:
-            for v in sorted(vizinhos, key=lambda x: grafo.get_nome(x)):
-                peso = grafo.G[painel_ubs_id][v]["weight"]
-                st.markdown(f"• {grafo.get_nome(v)} ({peso:.1f} km)")
+            st.markdown("### Conexões no grafo")
+            vizinhos = list(grafo.G.neighbors(painel_ubs_id))
+            if not vizinhos:
+                st.info("Sem UBSs conectadas no grafo.")
+            else:
+                for v in sorted(vizinhos, key=lambda x: grafo.get_nome(x)):
+                    peso = grafo.G[painel_ubs_id][v]["weight"]
+                    st.markdown(f"• {grafo.get_nome(v)} ({peso:.1f} km)")
 
         if endereco_localizado and distancia_endereco_ubs is not None:
             st.markdown("---")
             st.markdown("### Motivo da recomendação")
             st.markdown(
-                "A UBS foi comparada com outras unidades próximas e aparece com menor população estimada em sua área de abrangência no raio atual."
+                "A UBS foi comparada com as candidatas dentro do raio do endereço informado e aparece com menor população estimada em sua área de abrangência."
             )
             st.markdown("### Caminho")
             if rota_endereco_ubs:
@@ -1846,10 +1859,10 @@ with tab1:
                 st.markdown("Pela rota: **não disponível**")
 
         st.markdown("---")
-        st.markdown("### Serviços no Distrito")
+        st.markdown("### UBSs no distrito")
         servicos_local = grafo.contar_servicos_distrito(distrito_id)
         qtd_ubs = int(servicos_local.get("ubs", 0))
-        st.metric("Quantidade de UBS", qtd_ubs)
+        st.metric("Quantidade cadastrada", qtd_ubs)
 
 
 # ============================================================================
@@ -1918,10 +1931,9 @@ with tab2:
         )
     with col3:
         st.metric(
-            "Demanda territorial estimada",
-            f"{analise['populacao_abrangencia']:,.0f}".replace(",", "."),
-            delta=f"{analise['diferenca_media_pressao']:+.0f} vs média",
-            delta_color="inverse",
+            "Posição no ranking",
+            f"{analise['posicao']} de {analise['total_ubs']}",
+            delta="menor população primeiro",
         )
     with col4:
         st.metric(
@@ -1929,6 +1941,11 @@ with tab2:
             f"{analise['score']:.1f}/100",
             delta=analise["classificacao"],
         )
+
+    st.caption(
+        "Índice de cobertura: compara a população estimada da área de abrangência entre as 71 UBSs. "
+        "Quanto menor a população da AAUBS, maior o índice; ele indica demanda territorial potencial, não fila real."
+    )
 
     diferenca_pressao = float(analise["diferenca_media_pressao"])
     if diferenca_pressao > 0:
@@ -2224,7 +2241,8 @@ with tab4:
     st.markdown(
         """
         O sistema recebe um endereço, localiza esse ponto dentro do município de São Paulo
-        e compara as UBSs próximas. A distância delimita o conjunto de candidatas, mas a
+        e compara somente as UBSs dentro do raio definido a partir desse endereço. A distância
+        delimita o conjunto de candidatas, mas a
         ordenação principal usa a **pressão territorial estimada**, isto é, a população
         residente na área de abrangência de cada UBS. Informações públicas completas de
         capacidade ou número de equipes não foram utilizadas no denominador.
@@ -2232,7 +2250,9 @@ with tab4:
         O raio começa em **6 km** e pode expandir até **12 km** quando há poucas opções
         próximas. Assim, o sistema evita indicar uma UBS muito distante sem necessidade,
         mas ainda consegue encontrar alternativas quando o endereço está em uma área com
-        menos unidades no entorno.
+        menos unidades no entorno. Depois da escolha, a página também lista UBSs em até
+        **2 km da unidade recomendada** como alternativas de contingência; essa lista não
+        participa do cálculo que escolhe a recomendação.
         """
     )
 
@@ -2243,10 +2263,11 @@ with tab4:
     with col_exemplo_b:
         st.metric("Raio usado", f"{raio_exemplo:.1f} km")
     with col_exemplo_c:
-        st.metric("UBSs comparadas", total_exemplo)
+        st.metric("Candidatas no raio do endereço", total_exemplo)
     st.info(
-        f"No exemplo de Higienópolis, a UBS recomendada pelo critério de menor pressão é "
-        f"**{grafo.get_nome(int(ubs_exemplo['id']))}**."
+        f"No exemplo de Higienópolis, as {total_exemplo} candidatas estão em até "
+        f"{raio_exemplo:.1f} km da Rua Piauí, 144. Entre elas, a UBS recomendada pelo "
+        f"critério de menor demanda territorial estimada é **{grafo.get_nome(int(ubs_exemplo['id']))}**."
     )
     st.plotly_chart(fig_exemplo, width="stretch")
 
@@ -2264,14 +2285,14 @@ with tab4:
         ### Objetivo
 
         Desenvolver um sistema funcional que utilize **modelagem por grafos**
-        para analisar e visualizar desigualdades no acesso a **UBS, UPA e hospitais SUS**
-        a partir das UBSs da cidade de São Paulo.
+        para analisar e visualizar diferenças territoriais no acesso a **UBSs**
+        da cidade de São Paulo.
 
         ### ODS 10 — Redução das Desigualdades
 
         A desigualdade urbana se manifesta no acesso desigual a serviços de saúde.
-        UBSs em regiões periféricas tendem a apresentar menor cobertura relativa
-        de UPA e hospitais SUS quando comparadas a unidades mais centrais.
+        Áreas de abrangência com populações distintas podem indicar pressões territoriais
+        relativas diferentes sobre as UBSs disponíveis.
 
         O projeto busca identificar padrões de cobertura territorial, destacar
         UBSs com menor acesso relativo e fornecer uma visualização comparativa
@@ -2297,11 +2318,9 @@ with tab4:
         - **Centralidade de Proximidade:** Eficiência territorial de acesso
         - **Centralidade de Intermediação:** Importância como ponto de passagem
 
-        ### Serviços Analisados
+        ### Unidades Analisadas
 
-        - **Hospitais (SUS)** — Rede hospitalar pública
-        - **UPA** — Unidades de Pronto Atendimento
-        - **UBS** — Unidades Básicas de Saúde
+        - **UBS** — Unidades Básicas de Saúde vinculadas às suas áreas de abrangência (AAUBS)
         """)
 
     st.markdown("---")
@@ -2322,6 +2341,6 @@ with tab4:
     | Nome | RA |
     |---|---|
     | Lucas Fernandes | 10419400 |
-    | Lendy Naiara Pacheco | 10428525 |
-    | Anna Luiza Santos | 10417401 |
+    | Lendy Naiara Carpio Pacheco | 10428525 |
+    | Anna Luiza Stella Santos | 10417401 |
     """)
