@@ -1387,7 +1387,10 @@ with tab1:
             )
             st.caption("Use rua e número; para evitar ambiguidade, acrescente o bairro. Ex.: Rua Piauí 144 Higienópolis.")
             buscar_endereco = st.form_submit_button("Buscar UBSs recomendadas")
-        st.caption("Teste do raio automático: Rua Eurico Dias Baptista, Grajaú tende a expandir a busca para além de 6 km.")
+        st.caption(
+            "Teste da expansão automática: Rua Barra Fria, Jardim América da Penha "
+            "expande a busca para além de 6 km e retorna alternativas."
+        )
 
         if buscar_endereco:
             limpar_estado_busca()
